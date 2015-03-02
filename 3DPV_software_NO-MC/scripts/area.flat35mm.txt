@@ -1,0 +1,6 @@
+aa={0.00061250000025,0.000612482500250007,}
+
+ BinCounts[aa, {0, 100, 5}]
+BarChart[%, BarSpacing -> 0]
+
+ The total area is 0.00122498250050001 m^2

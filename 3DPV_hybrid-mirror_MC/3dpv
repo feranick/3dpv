@@ -1,0 +1,53 @@
+### Version optimized for MC optimization
+
+#!/bin/bash
+
+# 0 = fixed
+# 1 is fixed with parameter specification for each cell (need _c file basically), 
+# 2 is GA 
+# 3 is MC
+# 4 is MC with mirror and absorber
+
+TYPE=4
+
+if [ "$1" = "" ]; then
+echo "Usage: ./3dpv inputfile or ./3dpv inputfile folder"
+else 
+
+#echo ""
+
+ if [ "$2" = "" ]; then
+  mkdir $1-dir
+  mkdir $1-dir/cell_power
+  mkdir $1-dir/struct_power
+  #echo "Simulation started"
+  #echo ""
+  ./solar3d $1 $1-dir $TYPE > $1.out
+  echo ""
+  tar cvjf $1.tar.bz2 $1*
+  echo ""
+  cat  $1.out
+  rm -r $1-dir
+  echo ""
+  echo "Done"
+  echo ""
+ else
+  
+  mkdir $2-dir
+  mkdir $2-dir/cell_power
+  mkdir $2-dir/struct_power
+  #echo "Simulation started"
+  #echo ""
+  ./solar3d $1 $2-dir $TYPE > $2.out
+  echo ""
+  tar cvjf $2.tar.bz2 $2* $1
+  echo ""
+  cat $2.out
+  rm -r $2-dir
+  echo ""
+  echo "Done"
+  echo ""
+ fi
+#echo ""
+fi
+

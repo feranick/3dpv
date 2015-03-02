@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+#use the script as follows:
+#./sub_3d 1 jobname | qsub -N jobname
+
+@ARGV > 0 or die "usage: sub_3d 1node etc \n";
+$n=$ARGV[0];
+$nprocs=$n*1;
+#This part creates necessary directories
+$dir="$ARGV[1]"."-dir";
+`mkdir $dir` ;
+`mkdir $dir/cell_power` ;
+`mkdir $dir/struct_power` ;
+
+print "#!/bin/sh
+#PBS -l nodes=$n:ppn=1
+##PBS -N job_name
+#PBS -l walltime=2:00:00
+
+
+cd \$PBS_O_WORKDIR
+if [ -f /act/Modules/3.2.6/init/bash ]; then
+        source /act/Modules/3.2.6/init/bash
+else
+        echo \"Could not source environment modules!\"
+        exit 1
+fi
+cat \$PBS_NODEFILE > \$PBS_O_WORKDIR/nodes.out
+
+
+### 0=GA run 1=fixed 2=fixed+mixed (mixed reflectivities/efficiencies)
+#line below = executable input-file jobname-dir type-of-run (line above)
+
+./solar3d bos-fixed cubeNicola07302011-dir 2
+";
+

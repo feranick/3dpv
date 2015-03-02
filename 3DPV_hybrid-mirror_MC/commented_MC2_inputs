@@ -1,0 +1,30 @@
+0					wether all cells are one-sided or not
+20					number of cells in the 3d solar cell
+10					the square root of the number of grid points per cell for ray-tracing 
+100					x-dimension of the outerbox 
+100					y-dimension of the outerbox
+10					z-dimension of the outerbox
+8					starting month
+30					starting day
+2010					starting year
+10					ending month
+31					ending day
+2010					ending year
+-71.09248				longitude
+42.35994				latitude
+10.8889					avgtemp
+1013.25					avgpressure
+22					elevation
+-5					time from GMT
+10					x-dimension of the innerbox
+10					y-dimension of the innerbox
+10					z-dimension of the innerbox
+10					number of absorbers
+10					number of mirrors
+ma					MC evolution specification (e.g., "ma" stands for "mirror & absorber")
+500					maximum MC steps
+18					number of coordinates to be changed in each step
+2					the magnitude/size of each step in MC
+power 3 5				the cooling scheme
+1					wether MC will load initial population from file
+july_models/box_10x10_h10.txt		the file name of the distinct initial model (if there are more than one distinct initial model, e.g., the input in the last line is > 1, 						then there will be more file names after this line.)

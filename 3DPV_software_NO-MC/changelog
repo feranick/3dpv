@@ -1,0 +1,9 @@
+20140303
+
+- Fixed compilation for OS X Mavericks. New makefile required (copy and paste).
+  Requires gcc 4.8 (macports).
+
+
+20140225
+
+- added debugging info about "Got a plane error" in geometry.cpp

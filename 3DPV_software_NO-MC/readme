@@ -1,0 +1,24 @@
+Compilation:
+
+1. From the main folder launch "make"
+2. The executable, solar3d, should be present.
+
+Usage:
+
+A script "3dpv"  is provided for a seamless use. 
+Two usages:
+
+1. ./3dpv inputfile
+   The simulation will be run from the file inputfile (bos-fixed, for 
+example), and the data will be saved in bos-fixed-dir. The output will 
+be also saved, in the file bos-fixed.out
+
+2. ./3dpv inputfile folder
+   Same as above, but the name of the folder now can be specified. 
+
+3. Modify the script in the text editor to change the type of 
+simulation:
+Change the variable TYPE to:
+
+  0=GA run 1=fixed 2=fixed+mixed (mixed reflectivities/efficiencies)
+

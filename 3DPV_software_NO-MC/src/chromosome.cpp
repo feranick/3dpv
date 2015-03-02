@@ -1,0 +1,373 @@
+/***************************************************************/
+ /* Single & Multi-Objective Real-Coded Genetic Algorithms Code */
+/* Author: Kumara Sastry                                       */
+/* Illinois Genetic Algorithms Laboratory (IlliGAL)            */
+/* Deparment of General Engineering                            */
+/* University of Illinois at Urbana-Champaign                  */
+/* 104 S. Mathews Ave, Urbana, IL 61801                        */
+/***************************************************************/
+
+#include "chromosome.hpp"
+
+extern GlobalSetup *globalSetup;
+extern Random myRandom;
+
+// The Big 3
+
+Chromosome::Chromosome(void) {
+	// Initialize to random values within the limits of each variable
+	// I am going to follow the same naming conventions as used previously
+	// for random number generators although we will be using different
+	// functions.
+	int ii;
+
+	genes = new double[globalSetup->noOfDecisionVariables];
+	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+		genes[ii] = myRandom.boundedRandom(globalSetup->variableRanges[ii][0],
+				globalSetup->variableRanges[ii][1]);
+		if (globalSetup->variableTypes[ii]==Integer)
+			genes[ii] = int(genes[ii]+0.5);
+	}
+}
+
+Chromosome::Chromosome(const Chromosome &chrom) {
+	int ii;
+	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+		genes[ii] = chrom[ii];
+
+}
+
+Chromosome::~Chromosome(void) {
+	delete []genes;
+}
+
+std::ostream &operator<<(std::ostream &out, Chromosome &chrom) {
+	int ii;
+	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+		out<<chrom[ii]<<std::endl;
+	return out;
+}
+
+Chromosome &Chromosome::operator= (const Chromosome &sourceChrom)
+{
+	int ii;
+	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+	genes[ii] = sourceChrom.genes[ii];
+	return *this;
+}
+
+/*
+ *==========================================================
+ * Function Name: mutateMinMax
+ * Function Task: Selective mutation. Randomly select one of 
+ *    the genes and replace it with a random variables sampled
+ *    uniformly between the gene ranges if the gene is not 
+ *    frozen. Perform this process with a probability equal 
+ *    to mutation probability
+ * Input parameters: freezeMask[noOfDecisionVariables]
+ * Output: None
+ * Functions Invoked: myRandom::boundedRandom(Min, Max)
+ *=========================================================
+ */
+
+void Chromosome::mutateMinMax(const int *freezeMask) {
+	int position;
+
+	// select a gene position randomly
+	position = myRandom.boundedIntegerRandom(0,
+			globalSetup->noOfDecisionVariables);
+
+	// If the chosen gene is not frozen (only for SGA) 
+	if (((globalSetup->gaType == SGA)&&(freezeMask[position] == OFF))
+			||(globalSetup->gaType == NSGA)) {
+		//Flip a biased coin (bias = mutation probability)
+		if (myRandom.flip(globalSetup->mutationProbability)) {
+			//Replace the selected gene with a uniform random variate within gene ranges
+			genes[position] = myRandom.boundedRandom(
+					globalSetup->variableRanges[position][0],
+					globalSetup->variableRanges[position][1]);
+			//If the gene is an integer round it off
+			if (globalSetup->variableTypes[position] == Integer)
+				genes[position] = int(genes[position]+0.5);
+		}
+	}
+}
+
+/*
+ *==========================================================
+ * Function Name: mutateNormal
+ * Function Task: Genewise mutation. To each of the gene
+ *    add a value sampled from a normal distribution with
+ *    zero mean and a user specified standard deviation.
+ *    if the gene is not frozen. Perform this process with a 
+ *    probability equal to mutation probability
+ * Input parameters: freezeMask[noOfDecisionVariables]
+ *                   globalSetup::mutationParameters
+ * Output: None
+ * Functions Invoked: myRandom::normalRandom(standardDeviation)
+ *=========================================================
+ */
+void Chromosome::mutateNormal(const int *freezeMask) {
+	int ii;
+	int gg;
+
+	//Copy the standard deviations from global setup
+
+	//For each decision variable
+	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+
+		// If the GA type is SGA then check if freeze mask of the variable is off
+		if (((globalSetup->gaType == SGA)&&(freezeMask[ii] == OFF))
+				||(globalSetup->gaType == NSGA)) {
+			//Flip a biased coin with mutation probability
+			if (myRandom.flip(globalSetup->mutationProbability)) {
+				// Added a random guassian noise to the variable value
+				genes[ii] = genes[ii] + myRandom.normalRandom(((double *)globalSetup->mutationParameters)[ii]);
+				// If the variable is an integer, round it to closest integer
+				if (globalSetup->variableTypes[ii]==Integer)
+					genes[ii] = int(genes[ii]+0.5);
+				//If the variables are beyond the range then perturb it only till the range
+				/*if (genes[ii] > globalSetup->variableRanges[ii][1])
+					genes[ii] = globalSetup->variableRanges[ii][1];
+				if (genes[ii] < globalSetup->variableRanges[ii][0])
+					genes[ii] = globalSetup->variableRanges[ii][0];*/
+			}
+		}
+		//If the variables are beyond the range then perturb it only till the range
+		// on 4/10/09, I added the order 10^-3 random deviation, manybe it can help prevent degeneracy errors if they may occur
+				if (genes[ii] > globalSetup->variableRanges[ii][1])
+					{genes[ii] = globalSetup->variableRanges[ii][1] - (myRandom.random01())/100;}
+				if (genes[ii] < globalSetup->variableRanges[ii][0])
+					{genes[ii] = globalSetup->variableRanges[ii][0] + (myRandom.random01())/100;}
+		// HERE IS WHERE I SHOULD ADD AREA CONSTRICTION!!!!!!
+		
+	}
+	int num_groups = globalSetup->noOfDecisionVariables/9; // ie, number of cells
+	//double mid[3];	// commented out on 4/10/09...not doing the midpoint method
+	// 0.1 and 1 values for a footprint of 4 by 4 meters....
+	//double min_width=0.5; // minimum value will always be checked, but // commented out on 4/10/09
+	//double max_width=2.5; // maximum value is only enforced when input file specifies option is ON // commented out on 4/10/09
+	// bool arbitrary_thing=true; // 4/10/09 mainly for testing, may use later
+	double tWidth[3];
+	double max_magnitude=25; // MAXIMUM permitted magnitude of a triangle edge vector
+	double min_magnitude=0.5; // MINIMUM permitted magnitude of a triangle edge vector
+	double xWidth = 0;
+	double yWidth = 0;
+	double zWidth = 0;
+	int largest=0; // 0,1,2 = x,y,z
+	int smallest=0; //....""
+	int jv[3][2] = {{0,3}, {0,6}, {3,6}}; // each pair indicates the position index of the x-coordiate for the iith triangle vector
+	if (globalSetup->do_area_restriction==true)
+	{
+		for (gg=0; gg<num_groups; gg++)
+		{
+			// first get the lengths of each side of the triangle
+			tWidth[0] = sqrt( 	pow(genes[gg*9+0]-genes[gg*9+3],2)+ 
+						pow(genes[gg*9+1]-genes[gg*9+4],2)+ 
+						pow(genes[gg*9+2]-genes[gg*9+5],2) );
+			
+			tWidth[1] = sqrt( 	pow(genes[gg*9+0]-genes[gg*9+6],2)+ 
+						pow(genes[gg*9+1]-genes[gg*9+7],2)+ 
+						pow(genes[gg*9+2]-genes[gg*9+8],2) );
+			
+			tWidth[2] = sqrt(	pow(genes[gg*9+3]-genes[gg*9+6],2)+ 
+						pow(genes[gg*9+4]-genes[gg*9+7],2)+ 
+						pow(genes[gg*9+5]-genes[gg*9+8],2) );
+				
+			for (ii=0; ii<3; ii++)
+			{
+				while (tWidth[ii] > max_magnitude)
+				{
+					xWidth = fabs(genes[gg*9+jv[ii][0]+0]-genes[gg*9+jv[ii][1]+0]);
+					yWidth = fabs(genes[gg*9+jv[ii][0]+1]-genes[gg*9+jv[ii][1]+1]);
+					zWidth = fabs(genes[gg*9+jv[ii][0]+2]-genes[gg*9+jv[ii][1]+2]);
+				
+					if (xWidth>yWidth) {
+						largest=0;
+						if (xWidth>zWidth) {largest=0;} else {largest = 2;}
+					} else {
+						largest=1;
+					if (yWidth>zWidth) {largest=1;} else {largest = 2;}
+					}
+
+					if (myRandom.flip( 0.5 )) {
+						if (genes[gg*9+jv[ii][0]+largest]>genes[gg*9+jv[ii][1]+largest]) {
+							genes[gg*9+jv[ii][0]+largest] -= (myRandom.random01())/10;
+						}
+						else {
+							genes[gg*9+jv[ii][0]+largest] += (myRandom.random01())/10;
+						}
+					}
+					else {
+						if (genes[gg*9+jv[ii][1]+largest]>genes[gg*9+jv[ii][0]+largest]) {
+							genes[gg*9+jv[ii][1]+largest] -= (myRandom.random01())/10;
+						}
+						else {
+							genes[gg*9+jv[ii][1]+largest] += (myRandom.random01())/10;
+						}
+					}
+					// recalculate the width
+					tWidth[ii] = sqrt(	pow(genes[gg*9+jv[ii][0]+0]-genes[gg*9+jv[ii][1]+0],2)+ 
+								pow(genes[gg*9+jv[ii][0]+1]-genes[gg*9+jv[ii][1]+1],2)+ 
+							pow(genes[gg*9+jv[ii][0]+2]-genes[gg*9+jv[ii][1]+2],2) );			
+				}
+
+				/*while (tWidth[ii] < min_magnitude)
+				{
+					xWidth = fabs(genes[gg*9+jv[ii][0]+0]-genes[gg*9+jv[ii][1]+0]);
+					yWidth = fabs(genes[gg*9+jv[ii][0]+1]-genes[gg*9+jv[ii][1]+1]);
+					zWidth = fabs(genes[gg*9+jv[ii][0]+2]-genes[gg*9+jv[ii][1]+2]);
+				
+					if (xWidth<yWidth) {
+						smallest=0;
+						if (xWidth<zWidth) {smallest=0;} else {smallest = 2;}
+					} else {
+						largest=1;
+						if (yWidth<zWidth) {smallest=1;} else {smallest = 2;}
+					}
+
+					if (myRandom.flip( 0.5 )) {
+						if (genes[gg*9+jv[ii][0]+smallest]>genes[gg*9+jv[ii][1]+smallest]) {
+							genes[gg*9+jv[ii][0]+smallest] += (myRandom.random01())/10;
+						}
+						else {
+							genes[gg*9+jv[ii][0]+smallest] -= (myRandom.random01())/10;
+						}
+					}
+					else {
+						if (genes[gg*9+jv[ii][1]+smallest]>genes[gg*9+jv[ii][0]+smallest]) {
+							genes[gg*9+jv[ii][1]+smallest] += (myRandom.random01())/10;
+						}
+						else {
+							genes[gg*9+jv[ii][1]+smallest] -= (myRandom.random01())/10;
+						}
+					}
+					// recalculate the width
+					tWidth[ii] = sqrt(	pow(genes[gg*9+jv[ii][0]+0]-genes[gg*9+jv[ii][1]+0],2)+ 
+								pow(genes[gg*9+jv[ii][0]+1]-genes[gg*9+jv[ii][1]+1],2)+ 
+							pow(genes[gg*9+jv[ii][0]+2]-genes[gg*9+jv[ii][1]+2],2) );			
+				}*/
+			}
+		}
+	}
+}
+
+/*
+ *==========================================================
+ * Function Name: mutatePolynomial
+ * Function Task: Polynomial mutation. This procedure is identical to simulated binary crossover, except that the slope between the current gene value and the gene range (either minimum or maximum whichever is closer to the gene value).
+ * Input parameters: freezeMask[noOfDecisionVariables]
+ *                   globalSetup::mutationParameters
+ * Output: None
+ * Functions Invoked: myRandom::random01()
+ *                    myRandom::flip(double probability)
+ *                    myRandom::boundedRandom(Min, Max)
+ * Reference: Deb, K., & Agarwal, R.B. (1995) "Simulated Binary Crossover for Continuous Search Space", Complex Systems. 9. pp. 115-148. (TCGA No. 05896).
+ *            Deb, K., & Kumar, A. (1995) "Real-Coded Genetic Algorithms with Simulated Binary Crossover: Studies on Multimodal and Multiobjective Problems", Complex Systems. 9. pp. 431-454. (TCGA No. 05897).
+ *=========================================================
+ */
+
+void Chromosome::mutatePolynomial(const int *freezeMask) {
+	int ii;
+	double geneMin, geneMax, rndNo;
+	double delta, value, deltaq;
+	int etaM; //The order of the polynomial
+	if (globalSetup->mutationParameters == NULL)
+		etaM = 20;
+	else
+		etaM = ((int *)globalSetup->mutationParameters)[0];
+
+	// For each variable do the following
+	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+		// If the GA type is SGA check if the freeze mask for the current variable is off
+		if (((globalSetup->gaType == SGA)&&(freezeMask[ii] == OFF))
+				||(globalSetup->gaType == NSGA)) {
+			// Flip a biased coin with mutation probability
+			if (myRandom.flip(globalSetup->mutationProbability)) {
+				geneMin = globalSetup->variableRanges[ii][0];
+				geneMax = globalSetup->variableRanges[ii][1];
+				// If the gene value is greater than the minimum
+				if (genes[ii] > geneMin) {
+					// if the gene value is closer to the minimum, compute the slope with the gene value and minimum as points
+
+					if ((genes[ii]-geneMin) < (geneMax-genes[ii]))
+						delta = (genes[ii] - geneMin)/(geneMax-geneMin);
+					// if the gene value is closer to the maximum, compute the slope with the gene value and maximum as points 
+					else
+						delta = (geneMax - genes[ii])/(geneMax-geneMin);
+					rndNo = myRandom.random01();
+					if (rndNo <= 0.5) {
+						value = 2.0*rndNo + (1.0 - 2.0*rndNo)*pow(1.0-delta,
+								(double)(etaM+1));
+						deltaq = pow(value, 1.0/((double)(etaM+1))) - 1.0;
+					} else {
+						value = 2.0*(1.0-rndNo) + 2.0*(rndNo - 0.5)*pow(1.0
+								-delta, (double)(etaM+1));
+						deltaq = 1.0 - pow(value, 1.0/((double)(etaM+1)));
+					}
+					genes[ii] = genes[ii] + deltaq*(geneMax - geneMin);
+				}
+				// If the gene value is less than the minimum, assign a value sampled from a uniform distribution between the gene ranges.
+				else
+					genes[ii] = myRandom.boundedRandom(geneMin, geneMax);
+				// If the gene is an integer, then round it off to the closest integer
+				if (globalSetup->variableTypes[ii] == Integer)
+					genes[ii] = int(genes[ii]+0.5);
+				// If the gene value is not within the range then bounded either to its minimum or maximum value
+				if (genes[ii] > globalSetup->variableRanges[ii][1])
+					genes[ii] = globalSetup->variableRanges[ii][1];
+				if (genes[ii] < globalSetup->variableRanges[ii][0])
+					genes[ii] = globalSetup->variableRanges[ii][0];
+			}
+		}
+	}
+}
+
+/*
+ *==========================================================
+ * Function Name: mutatePolynomial
+ * Function Task: Polynomial mutation. Mutates a given variable
+ *    using polynomial mutation. This routine is used by local 
+ *    search method (simplex and complex) to create initial 
+ *    points near a given point.
+ * Input parameters: int index
+ * Input range: [0, noOfDecisionVariables)
+ * Output: None
+ * Functions Invoked: myRandom::random01()
+ * Reference: Deb, K., & Agarwal, R.B. (1995) "Simulated Binary Crossover for Continuous Search Space", Complex Systems. 9. pp. 115-148. (TCGA No. 05896).
+ *            Deb, K., & Kumar, A. (1995) "Real-Coded Genetic Algorithms with Simulated Binary Crossover: Studies on Multimodal and Multiobjective Problems", Complex Systems. 9. pp. 431-454. (TCGA No. 05897).
+ *=========================================================
+ */
+
+void Chromosome::mutatePolynomial(const int index) {
+	double geneMin, geneMax, rndNo;
+	double delta, value, deltaq;
+	int etaM; //The order of the polynomial
+	etaM = ((int *)globalSetup->mutationParameters)[0];
+
+	geneMin = globalSetup->variableRanges[index][0];
+	geneMax = globalSetup->variableRanges[index][1];
+	if (genes[index] > geneMin) {
+		if ((genes[index]-geneMin) < (geneMax-genes[index]))
+			delta = (genes[index] - geneMin)/(geneMax-geneMin);
+		else
+			delta = (geneMax - genes[index])/(geneMax-geneMin);
+		rndNo = myRandom.random01();
+		if (rndNo <= 0.5) {
+			value = 2.0*rndNo + (1.0 - 2.0*rndNo)*pow(1.0-delta, (double)(etaM
+					+1));
+			deltaq = pow(value, 1.0/((double)(etaM+1))) - 1.0;
+		} else {
+			value = 2.0*(1.0-rndNo) + 2.0*(rndNo - 0.5)*pow(1.0-delta,
+					(double)(etaM+1));
+			deltaq = 1.0 - pow(value, 1.0/((double)(etaM+1)));
+		}
+		genes[index] = genes[index] + deltaq*(geneMax - geneMin);
+	} else
+		genes[index] = myRandom.boundedRandom(geneMin, geneMax);
+	if (globalSetup->variableTypes[index] == Integer)
+		genes[index] = int(genes[index]+0.5);
+	if ((genes[index] > geneMax) || (genes[index] < geneMin))
+		genes[index] = myRandom.boundedRandom(geneMin, geneMax);
+}
+

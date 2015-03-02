@@ -1,0 +1,1032 @@
+./chromosome.cpp:	genes = new double[globalSetup->noOfDecisionVariables];
+./chromosome.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./chromosome.cpp:		genes[ii] = myRandom.boundedRandom(globalSetup->variableRanges[ii][0],
+./chromosome.cpp:				globalSetup->variableRanges[ii][1]);
+./chromosome.cpp:		if (globalSetup->variableTypes[ii]==Integer)
+./chromosome.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./chromosome.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./chromosome.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./chromosome.cpp:			globalSetup->noOfDecisionVariables);
+./chromosome.cpp:	if (((globalSetup->gaType == SGA)&&(freezeMask[position] == OFF))
+./chromosome.cpp:			||(globalSetup->gaType == NSGA)) {
+./chromosome.cpp:		if (myRandom.flip(globalSetup->mutationProbability)) {
+./chromosome.cpp:					globalSetup->variableRanges[position][0],
+./chromosome.cpp:					globalSetup->variableRanges[position][1]);
+./chromosome.cpp:			if (globalSetup->variableTypes[position] == Integer)
+./chromosome.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./chromosome.cpp:		if (((globalSetup->gaType == SGA)&&(freezeMask[ii] == OFF))
+./chromosome.cpp:				||(globalSetup->gaType == NSGA)) {
+./chromosome.cpp:			if (myRandom.flip(globalSetup->mutationProbability)) {
+./chromosome.cpp:				genes[ii] = genes[ii] + myRandom.normalRandom(((double *)globalSetup->mutationParameters)[ii]);
+./chromosome.cpp:				if (globalSetup->variableTypes[ii]==Integer)
+./chromosome.cpp:				if (genes[ii] > globalSetup->variableRanges[ii][1])
+./chromosome.cpp:					genes[ii] = globalSetup->variableRanges[ii][1];
+./chromosome.cpp:				if (genes[ii] < globalSetup->variableRanges[ii][0])
+./chromosome.cpp:					genes[ii] = globalSetup->variableRanges[ii][0];
+./chromosome.cpp:				if (genes[ii] > globalSetup->variableRanges[ii][1])
+./chromosome.cpp:					{genes[ii] = globalSetup->variableRanges[ii][1];}
+./chromosome.cpp:				if (genes[ii] < globalSetup->variableRanges[ii][0])
+./chromosome.cpp:					{genes[ii] = globalSetup->variableRanges[ii][0];}
+./chromosome.cpp:	int num_groups = globalSetup->noOfDecisionVariables/9; // ie, number of cells
+./chromosome.cpp:	if (globalSetup->mutationParameters == NULL)
+./chromosome.cpp:		etaM = ((int *)globalSetup->mutationParameters)[0];
+./chromosome.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./chromosome.cpp:		if (((globalSetup->gaType == SGA)&&(freezeMask[ii] == OFF))
+./chromosome.cpp:				||(globalSetup->gaType == NSGA)) {
+./chromosome.cpp:			if (myRandom.flip(globalSetup->mutationProbability)) {
+./chromosome.cpp:				geneMin = globalSetup->variableRanges[ii][0];
+./chromosome.cpp:				geneMax = globalSetup->variableRanges[ii][1];
+./chromosome.cpp:				if (globalSetup->variableTypes[ii] == Integer)
+./chromosome.cpp:				if (genes[ii] > globalSetup->variableRanges[ii][1])
+./chromosome.cpp:					genes[ii] = globalSetup->variableRanges[ii][1];
+./chromosome.cpp:				if (genes[ii] < globalSetup->variableRanges[ii][0])
+./chromosome.cpp:					genes[ii] = globalSetup->variableRanges[ii][0];
+./chromosome.cpp:	etaM = ((int *)globalSetup->mutationParameters)[0];
+./chromosome.cpp:	geneMin = globalSetup->variableRanges[index][0];
+./chromosome.cpp:	geneMax = globalSetup->variableRanges[index][1];
+./chromosome.cpp:	if (globalSetup->variableTypes[index] == Integer)
+./chromosome.cpp~:	genes = new double[globalSetup->noOfDecisionVariables];
+./chromosome.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./chromosome.cpp~:		genes[ii] = myRandom.boundedRandom(globalSetup->variableRanges[ii][0],
+./chromosome.cpp~:				globalSetup->variableRanges[ii][1]);
+./chromosome.cpp~:		if (globalSetup->variableTypes[ii]==Integer)
+./chromosome.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./chromosome.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./chromosome.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./chromosome.cpp~:			globalSetup->noOfDecisionVariables);
+./chromosome.cpp~:	if (((globalSetup->gaType == SGA)&&(freezeMask[position] == OFF))
+./chromosome.cpp~:			||(globalSetup->gaType == NSGA)) {
+./chromosome.cpp~:		if (myRandom.flip(globalSetup->mutationProbability)) {
+./chromosome.cpp~:					globalSetup->variableRanges[position][0],
+./chromosome.cpp~:					globalSetup->variableRanges[position][1]);
+./chromosome.cpp~:			if (globalSetup->variableTypes[position] == Integer)
+./chromosome.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./chromosome.cpp~:		if (((globalSetup->gaType == SGA)&&(freezeMask[ii] == OFF))
+./chromosome.cpp~:				||(globalSetup->gaType == NSGA)) {
+./chromosome.cpp~:			if (myRandom.flip(globalSetup->mutationProbability)) {
+./chromosome.cpp~:				genes[ii] = genes[ii] + myRandom.normalRandom(((double *)globalSetup->mutationParameters)[ii]);
+./chromosome.cpp~:				if (globalSetup->variableTypes[ii]==Integer)
+./chromosome.cpp~:				if (genes[ii] > globalSetup->variableRanges[ii][1])
+./chromosome.cpp~:					genes[ii] = globalSetup->variableRanges[ii][1];
+./chromosome.cpp~:				if (genes[ii] < globalSetup->variableRanges[ii][0])
+./chromosome.cpp~:					genes[ii] = globalSetup->variableRanges[ii][0];
+./chromosome.cpp~:				if (genes[ii] > globalSetup->variableRanges[ii][1])
+./chromosome.cpp~:					{genes[ii] = globalSetup->variableRanges[ii][1];}
+./chromosome.cpp~:				if (genes[ii] < globalSetup->variableRanges[ii][0])
+./chromosome.cpp~:					{genes[ii] = globalSetup->variableRanges[ii][0];}
+./chromosome.cpp~:	int num_groups = globalSetup->noOfDecisionVariables/9; // ie, number of cells
+./chromosome.cpp~:	if (globalSetup->mutationParameters == NULL)
+./chromosome.cpp~:		etaM = ((int *)globalSetup->mutationParameters)[0];
+./chromosome.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./chromosome.cpp~:		if (((globalSetup->gaType == SGA)&&(freezeMask[ii] == OFF))
+./chromosome.cpp~:				||(globalSetup->gaType == NSGA)) {
+./chromosome.cpp~:			if (myRandom.flip(globalSetup->mutationProbability)) {
+./chromosome.cpp~:				geneMin = globalSetup->variableRanges[ii][0];
+./chromosome.cpp~:				geneMax = globalSetup->variableRanges[ii][1];
+./chromosome.cpp~:				if (globalSetup->variableTypes[ii] == Integer)
+./chromosome.cpp~:				if (genes[ii] > globalSetup->variableRanges[ii][1])
+./chromosome.cpp~:					genes[ii] = globalSetup->variableRanges[ii][1];
+./chromosome.cpp~:				if (genes[ii] < globalSetup->variableRanges[ii][0])
+./chromosome.cpp~:					genes[ii] = globalSetup->variableRanges[ii][0];
+./chromosome.cpp~:	etaM = ((int *)globalSetup->mutationParameters)[0];
+./chromosome.cpp~:	geneMin = globalSetup->variableRanges[index][0];
+./chromosome.cpp~:	geneMax = globalSetup->variableRanges[index][1];
+./chromosome.cpp~:	if (globalSetup->variableTypes[index] == Integer)
+./crossover.cpp:				globalSetup->noOfDecisionVariables-1);
+./crossover.cpp:		XoverPt1 = myRandom.boundedIntegerRandom(0, globalSetup->noOfDecisionVariables-1);
+./crossover.cpp:			for (ii = XoverPt1; ii < globalSetup->noOfDecisionVariables; ii++) {
+./crossover.cpp:				globalSetup->noOfDecisionVariables-1);
+./crossover.cpp:					globalSetup->noOfDecisionVariables-1);
+./crossover.cpp:		XoverPt1 = myRandom.boundedIntegerRandom(0, globalSetup->noOfDecisionVariables-1);
+./crossover.cpp:			XoverPt2 = myRandom.boundedIntegerRandom(0, globalSetup->noOfDecisionVariables-1);
+./crossover.cpp:	if (globalSetup->nichingType == DeterministicCrowding) {
+./crossover.cpp:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./crossover.cpp:	if (myRandom.flip(globalSetup->xOverProbability)) {
+./crossover.cpp:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./crossover.cpp:		if (globalSetup->nichingType == DeterministicCrowding) {
+./crossover.cpp:			for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./crossover.cpp:	if (globalSetup->xOverParameters==NULL)
+./crossover.cpp:		etaC = ((double *)globalSetup->xOverParameters)[1];
+./crossover.cpp:	if (myRandom.flip(globalSetup->xOverProbability)) {
+./crossover.cpp:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./crossover.cpp:				geneMin = globalSetup->variableRanges[ii][0];
+./crossover.cpp:				geneMax = globalSetup->variableRanges[ii][1];
+./crossover.cpp:				if (globalSetup->variableTypes[ii] == Integer)
+./crossover.cpp:				if (globalSetup->variableTypes[ii] == Integer)
+./crossover.cpp:		if (globalSetup->nichingType == DeterministicCrowding) {
+./crossover.cpp:			for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./crossover.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./crossover.cpp:			for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./crossover.cpp:			for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./crossover.cpp:			for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./crossover.cpp:			for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./ga.cpp:	noOfGlobalEvals = (long)(globalSetup->populationSize);
+./ga.cpp:	if (globalSetup->gaType==SGA)
+./ga.cpp:	noOfGlobalEvals = (long)(globalSetup->populationSize);
+./ga.cpp:	if (globalSetup->gaType==SGA)
+./ga.cpp:	int ii, np = 2*(globalSetup->populationSize), fid = 0;
+./ga.cpp:	/*for (int iii = 0; iii < globalSetup->populationSize; iii++) {
+./ga.cpp:	for (int iii = 0; iii < (globalSetup->noOfDecisionVariables); iii++) {
+./ga.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./ga.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp:			*(pop->combinedGuys[ii+(globalSetup->populationSize)]) = *(pop->newGuys[ii]);
+./ga.cpp:				<= globalSetup->populationSize) {
+./ga.cpp:		if (numNextGen < globalSetup->populationSize) {
+./ga.cpp:			for (ii = numNextGen; ii < globalSetup->populationSize; ii++) {
+./ga.cpp:	for (int iii = 0; iii < (globalSetup->noOfDecisionVariables); iii++) {
+./ga.cpp:		if (globalSetup->nichingType != DeterministicCrowding) {
+./ga.cpp:			for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp:			for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp:		if (globalSetup->nichingType == RTS)
+./ga.cpp:		if (globalSetup->localSearchMethod != NoLocalSearch) {
+./ga.cpp:		if ((globalSetup->selectionType == SUS)|| (globalSetup->selectionType
+./ga.cpp:				== RouletteWheel)|| (globalSetup->nichingType == Sharing)) {
+./ga.cpp:			if (globalSetup->nichingType == Sharing)
+./ga.cpp:	if (genID >= globalSetup->maxGenerations) {
+./ga.cpp:	for (ii = 0; ii < globalSetup->noOfStoppingCriterias; ii++) {
+./ga.cpp:		switch (globalSetup->otherStoppingCriteria[ii]) {
+./ga.cpp:					>= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if (globalSetup->gaType == SGA) {
+./ga.cpp:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp:			} else if (globalSetup->gaType == NSGA) {
+./ga.cpp:				for (jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./ga.cpp:							>= globalSetup->stoppingParameter[ii]) {
+./ga.cpp:			if (population->getAvgFit() >= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if (population->getAvgObj() >= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if ((*(globalSetup->typeOfOptimizations) == Minimization)
+./ga.cpp:							<= globalSetup->stoppingParameter[ii]))
+./ga.cpp:			else if ((*(globalSetup->typeOfOptimizations) == Maximization)
+./ga.cpp:							>= globalSetup->stoppingParameter[ii]))
+./ga.cpp:			if (genID > globalSetup->genNumWindow)
+./ga.cpp:						== globalSetup->genNumWindow)
+./ga.cpp:					<= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp:				if (successiveNoChangeInAvgFitness == globalSetup->genNumWindow)
+./ga.cpp:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp:				if (successiveNoChangeInFitnessVar == globalSetup->genNumWindow)
+./ga.cpp:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp:						== globalSetup->genNumWindow)
+./ga.cpp:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp:						== globalSetup->genNumWindow)
+./ga.cpp:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp:					<= globalSetup->stoppingParameter[ii])
+./ga.cpp:					<= globalSetup->stoppingParameter[ii])
+./ga.cpp:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp:						== globalSetup->genNumWindow)
+./ga.cpp:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:	noOfGlobalEvals = (long)(globalSetup->populationSize);
+./ga.cpp~:	if (globalSetup->gaType==SGA)
+./ga.cpp~:	noOfGlobalEvals = (long)(globalSetup->populationSize);
+./ga.cpp~:	if (globalSetup->gaType==SGA)
+./ga.cpp~:	int ii, np = 2*(globalSetup->populationSize), fid = 0;
+./ga.cpp~:	for (int iii = 0; iii < globalSetup->populationSize; iii++) {
+./ga.cpp~:	for (int iii = 0; iii < (globalSetup->noOfDecisionVariables); iii++) {
+./ga.cpp~:		for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp~:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./ga.cpp~:		for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp~:			*(pop->combinedGuys[ii+(globalSetup->populationSize)]) = *(pop->newGuys[ii]);
+./ga.cpp~:				<= globalSetup->populationSize) {
+./ga.cpp~:		if (numNextGen < globalSetup->populationSize) {
+./ga.cpp~:			for (ii = numNextGen; ii < globalSetup->populationSize; ii++) {
+./ga.cpp~:	for (int iii = 0; iii < (globalSetup->noOfDecisionVariables); iii++) {
+./ga.cpp~:		if (globalSetup->nichingType != DeterministicCrowding) {
+./ga.cpp~:			for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp~:			for (ii = 0; ii < globalSetup->populationSize; ii++)
+./ga.cpp~:		if (globalSetup->nichingType == RTS)
+./ga.cpp~:		if (globalSetup->localSearchMethod != NoLocalSearch) {
+./ga.cpp~:		if ((globalSetup->selectionType == SUS)|| (globalSetup->selectionType
+./ga.cpp~:				== RouletteWheel)|| (globalSetup->nichingType == Sharing)) {
+./ga.cpp~:			if (globalSetup->nichingType == Sharing)
+./ga.cpp~:	if (genID >= globalSetup->maxGenerations) {
+./ga.cpp~:	for (ii = 0; ii < globalSetup->noOfStoppingCriterias; ii++) {
+./ga.cpp~:		switch (globalSetup->otherStoppingCriteria[ii]) {
+./ga.cpp~:					>= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if (globalSetup->gaType == SGA) {
+./ga.cpp~:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			} else if (globalSetup->gaType == NSGA) {
+./ga.cpp~:				for (jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./ga.cpp~:							>= globalSetup->stoppingParameter[ii]) {
+./ga.cpp~:			if (population->getAvgFit() >= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if (population->getAvgObj() >= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if ((*(globalSetup->typeOfOptimizations) == Minimization)
+./ga.cpp~:							<= globalSetup->stoppingParameter[ii]))
+./ga.cpp~:			else if ((*(globalSetup->typeOfOptimizations) == Maximization)
+./ga.cpp~:							>= globalSetup->stoppingParameter[ii]))
+./ga.cpp~:			if (genID > globalSetup->genNumWindow)
+./ga.cpp~:						== globalSetup->genNumWindow)
+./ga.cpp~:					<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp~:				if (successiveNoChangeInAvgFitness == globalSetup->genNumWindow)
+./ga.cpp~:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp~:				if (successiveNoChangeInFitnessVar == globalSetup->genNumWindow)
+./ga.cpp~:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp~:						== globalSetup->genNumWindow)
+./ga.cpp~:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp~:						== globalSetup->genNumWindow)
+./ga.cpp~:						<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:					<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:					<= globalSetup->stoppingParameter[ii])
+./ga.cpp~:			if (genID > globalSetup->genNumWindow) {
+./ga.cpp~:						== globalSetup->genNumWindow)
+./ga.cpp~:						<= globalSetup->stoppingParameter[ii])
+./individual.cpp:	//    6.   int *freezeMask; - initialize to int[globalSetup->noOfVariables] and set everything to 0.
+./individual.cpp:	if (!(globalSetup->finalNoOfConstraints))
+./individual.cpp:		violation = new double[globalSetup->finalNoOfConstraints];
+./individual.cpp:	if (globalSetup->gaType==SGA) {
+./individual.cpp:		if (!(globalSetup->loadPopulation))
+./individual.cpp:	if (globalSetup->gaType==SGA) {
+./individual.cpp:	if (globalSetup->finalNoOfConstraints) {
+./individual.cpp:		violation = new double[globalSetup->finalNoOfConstraints];
+./individual.cpp:		for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++)
+./individual.cpp:	if (globalSetup->gaType==SGA) {
+./individual.cpp:	if (globalSetup->finalNoOfConstraints) {
+./individual.cpp:		violation = new double[globalSetup->finalNoOfConstraints];
+./individual.cpp:		for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++)
+./individual.cpp:	if (globalSetup->gaType==SGA) {
+./individual.cpp:	if(globalSetup->finalNoOfConstraints) {
+./individual.cpp:		for(ii = 0; ii < globalSetup->finalNoOfConstraints; ii++)
+./individual.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./individual.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++)
+./individual.cpp:	if (globalSetup->finalNoOfConstraints) {
+./individual.cpp:		for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++)
+./individual.cpp:	values = new double[globalSetup->noOfDecisionVariables];
+./individual.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./individual.cpp:	switch (globalSetup->mutationType) {
+./individual.cpp:	if (globalSetup->gaType==SGA) {
+./individual.cpp:	if (globalSetup->finalNoOfConstraints)
+./individual.cpp:	fitness = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	objFunction = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	if (!(globalSetup->loadPopulation))
+./individual.cpp:	fitness = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	objFunction = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:	fitness = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	objFunction = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:	fitness = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	objFunction = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:	fitness = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	objFunction = new double[globalSetup->finalNoOfObjectives];
+./individual.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:	for (ii=0; ii<globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:	for(ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:	for (int i=0; i<globalSetup->finalNoOfConstraints; i++)
+./individual.cpp:		if (*(globalSetup->typeOfOptimizations) == Maximization) {
+./individual.cpp:	switch (globalSetup->constraintMethod) {
+./individual.cpp:		for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:		for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:			for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:			for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./individual.cpp:	if (*(globalSetup->typeOfOptimizations) == Maximization) {
+./individual.cpp:	if (*(globalSetup->typeOfOptimizations) == Maximization) {
+./individual.cpp:	switch (globalSetup->constraintMethod) {
+./individual.hpp:  inline void setObjective(double newObjective) {if (globalSetup->gaType==SGA) *objFunction = newObjective; else exit(0);}
+./individual.hpp:  inline void setFitness(double newFitness) {if (globalSetup->gaType==SGA) *fitness = newFitness; else exit(0);}
+./individual.hpp:    value = myRandom.boundedRandom(globalSetup->variableRanges[index][0],globalSetup->variableRanges[index][1]);
+./individual.hpp:    if(globalSetup->variableTypes[index] == Integer)
+./localsearch.cpp:maxLocalEvaluations = globalSetup->maxLocalEvaluations;
+./localsearch.cpp:maxLocalTolerance = globalSetup->maxLocalTolerance;
+./localsearch.cpp:  noOfVariables = globalSetup->noOfDecisionVariables;
+./localsearch.cpp:  for(ii = 0; ii < globalSetup->noOfDecisionVariables + 1; ii++)
+./localsearch.cpp:  noOfVariables = globalSetup->noOfDecisionVariables;
+./localsearch.cpp:  for(ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./localsearch.cpp:  for(jj = 1, ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./localsearch.cpp:    if((tolerance < globalSetup->maxLocalTolerance) || 
+./localsearch.cpp:	    for(jj = 0; jj < globalSetup->noOfDecisionVariables; jj++) {
+./localsearch.cpp:	      if(globalSetup->variableTypes[jj] == Integer) value = int(value+0.5);
+./localsearch.cpp:	      if(value > globalSetup->variableRanges[jj][1]) 
+./localsearch.cpp:		value = globalSetup->variableRanges[jj][1];
+./localsearch.cpp:	      else if(value < globalSetup->variableRanges[jj][0])
+./localsearch.cpp:		value = globalSetup->variableRanges[jj][0];
+./localsearch.cpp:  for(kk = 0, jj = 0; jj < globalSetup->noOfDecisionVariables; jj++) {
+./localsearch.cpp:	  if(globalSetup->variableTypes[jj] == Integer) value = int(value+0.5);
+./localsearch.cpp:      if(value > globalSetup->variableRanges[jj][1]) 
+./localsearch.cpp:	    value = globalSetup->variableRanges[jj][1];
+./localsearch.cpp:      else if(value < globalSetup->variableRanges[jj][0])
+./localsearch.cpp:	    value = globalSetup->variableRanges[jj][0];
+./localsearch.hpp:    for(kk = 0, jj = 0; jj < globalSetup->noOfDecisionVariables; jj++) {
+./main.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp:	if (globalSetup->gaType == SGA || globalSetup->gaType == NSGA  ) {
+./main.cpp:		Cell_3 cellArray[globalSetup->noOfDecisionVariables/9];
+./main.cpp:	/*if (globalSetup->savePopulation) {
+./main.cpp:		outEvals = fopen(globalSetup->saveEvalSolutions, "a");
+./main.cpp:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp:		for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp:		if (globalSetup->finalNoOfConstraints > 0) {
+./main.cpp:			for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++) {
+./main.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp:		globalSetup->gaType = SGA;
+./main.cpp:		globalSetup->gaType = NSGA;
+./main.cpp:	if ((globalSetup->noOfDecisionVariables = atoi(pToken)) <= 0) {
+./main.cpp:	globalSetup->variableTypes = new VariableType[globalSetup->noOfDecisionVariables];
+./main.cpp:	globalSetup->variableRanges = new double*[(globalSetup->noOfDecisionVariables)];
+./main.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp:			globalSetup->variableTypes[ii] = Real;
+./main.cpp:			globalSetup->variableTypes[ii] = Integer;
+./main.cpp:		globalSetup->variableRanges[ii] = new double[2];
+./main.cpp:		globalSetup->variableRanges[ii][0] = atof(pToken);
+./main.cpp:		globalSetup->variableRanges[ii][1] = atof(pToken);
+./main.cpp:		if (globalSetup->variableRanges[ii][1]
+./main.cpp:				<= globalSetup->variableRanges[ii][0]) {
+./main.cpp:					globalSetup->variableRanges[ii][0],
+./main.cpp:					globalSetup->variableRanges[ii][1]);
+./main.cpp:	if ((globalSetup->noOfRawObjectives = atoi(pToken)) <= 0) {
+./main.cpp:	globalSetup->finalNoOfObjectives = globalSetup->noOfRawObjectives;
+./main.cpp:	globalSetup->noOfLinearObjectiveCombinations = 0;
+./main.cpp:	globalSetup->typeOfOptimizations
+./main.cpp:			= new OptimType[globalSetup->finalNoOfObjectives];
+./main.cpp:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp:			globalSetup->typeOfOptimizations[ii] = Minimization;
+./main.cpp:			globalSetup->typeOfOptimizations[ii] = Maximization;
+./main.cpp:	if ((globalSetup->noOfRawConstraints = atoi(pToken)) < 0) {
+./main.cpp:	} else if (globalSetup->noOfRawConstraints == 0) {
+./main.cpp:	globalSetup->noOfLinearConstraintCombinations = 0;
+./main.cpp:	globalSetup->finalNoOfConstraints = globalSetup->noOfRawConstraints;
+./main.cpp:	globalSetup->penaltyWeights = new double[globalSetup->finalNoOfConstraints];
+./main.cpp:	for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++) {
+./main.cpp:		globalSetup->penaltyWeights[ii] = atof(pToken);
+./main.cpp:		if (globalSetup->noOfDecisionVariables > 2)
+./main.cpp:			globalSetup->populationSize = (int)(30
+./main.cpp:					*(globalSetup->noOfDecisionVariables)
+./main.cpp:					*log((double)(globalSetup->noOfDecisionVariables)));
+./main.cpp:			globalSetup->populationSize = (int)(30
+./main.cpp:					*(globalSetup->noOfDecisionVariables));
+./main.cpp:		if ((globalSetup->populationSize)%10)
+./main.cpp:			globalSetup->populationSize += (globalSetup->populationSize)%10;
+./main.cpp:		printf("The population size used is: %d\n", globalSetup->populationSize);
+./main.cpp:	else if ((globalSetup->populationSize = atoi(pToken)) <= 0) {
+./main.cpp:	} else if ((globalSetup->populationSize % 2) != 0) {
+./main.cpp:		globalSetup->maxGenerations = 6*(globalSetup->noOfDecisionVariables);
+./main.cpp:		if ((globalSetup->maxGenerations)%10)
+./main.cpp:			globalSetup->maxGenerations += 10-(globalSetup->maxGenerations)%10;
+./main.cpp:				globalSetup->maxGenerations);
+./main.cpp:	} else if ((globalSetup->maxGenerations = atoi(pToken)) <= 0) {
+./main.cpp:	//cout << "test: " << globalSetup->maxGenerations << endl;
+./main.cpp:		globalSetup->replaceProportion = 0.9;
+./main.cpp:	} else if (((globalSetup->replaceProportion = atof(pToken)) <= 0.0)
+./main.cpp:			|| (globalSetup->replaceProportion > 1.0)) {
+./main.cpp:		globalSetup->nichingType = NoNiching;
+./main.cpp:		globalSetup->nichingType = NoNiching;
+./main.cpp:		globalSetup->nichingParameters = NULL;
+./main.cpp:		globalSetup->nichingType = Sharing;
+./main.cpp:		globalSetup->nichingType = RTS;
+./main.cpp:		globalSetup->nichingType = DeterministicCrowding;
+./main.cpp:	if ((globalSetup->gaType == NSGA)
+./main.cpp:			&& (globalSetup->nichingType != NoNiching)) {
+./main.cpp:	switch (globalSetup->nichingType) {
+./main.cpp:		globalSetup->nichingParameters = new double[2];
+./main.cpp:			((double *)(globalSetup->nichingParameters))[0] = 4.24;
+./main.cpp:			((double *)globalSetup->nichingParameters)[0]
+./main.cpp:		if (((double*)globalSetup->nichingParameters)[0] <= 0.0) {
+./main.cpp:			((double*)(globalSetup->nichingParameters))[1] = 1.0;
+./main.cpp:			((double*)(globalSetup->nichingParameters))[1] = atof(pToken);
+./main.cpp:		globalSetup->nichingParameters = new int[1];
+./main.cpp:			if (globalSetup->noOfDecisionVariables
+./main.cpp:					< (globalSetup->populationSize/20))
+./main.cpp:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp:						= globalSetup->noOfDecisionVariables;
+./main.cpp:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp:						= (globalSetup->populationSize)/20;
+./main.cpp:			if (globalSetup->noOfDecisionVariables < 20)
+./main.cpp:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp:						= (globalSetup->populationSize)/20;
+./main.cpp:			if (((int*)globalSetup->nichingParameters)[0]
+./main.cpp:					> globalSetup->populationSize)
+./main.cpp:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp:						= globalSetup->populationSize;
+./main.cpp:			printf("The window size used for RTR is: %d\n", ((int*)globalSetup->nichingParameters)[0]);
+./main.cpp:			((int*)(globalSetup->nichingParameters))[0] = atoi(pToken);
+./main.cpp:		if ((((int*)globalSetup->nichingParameters)[0] <= 0) || (((int*)globalSetup->nichingParameters)[0]
+./main.cpp:				> globalSetup->populationSize)) {
+./main.cpp:		globalSetup->selectionType = TournamentWOR;
+./main.cpp:		globalSetup->selectionType = TournamentWOR;
+./main.cpp:		globalSetup->selectionType = SUS;
+./main.cpp:		globalSetup->selectionType = Truncation;
+./main.cpp:		globalSetup->selectionType = RouletteWheel;
+./main.cpp:		globalSetup->selectionType = TournamentWR;
+./main.cpp:	if ((globalSetup->gaType == NSGA) && ((globalSetup->selectionType == SUS)
+./main.cpp:			|| (globalSetup->selectionType == RouletteWheel))) {
+./main.cpp:	switch (globalSetup->selectionType) {
+./main.cpp:		globalSetup->selectionParameters = new int[1];
+./main.cpp:			((int*)globalSetup->selectionParameters)[0] = 2;
+./main.cpp:			((int*)globalSetup->selectionParameters)[0]
+./main.cpp:		globalSetup->xOverProbability = 0.9;
+./main.cpp:	else if (((globalSetup->xOverProbability = atof(pToken)) < 0.0)
+./main.cpp:			|| (globalSetup->xOverProbability > 1.0)) {
+./main.cpp:		globalSetup->xOverType = SBX;
+./main.cpp:		globalSetup->xOverType = OnePoint;
+./main.cpp:		globalSetup->xOverType = TwoPoint;
+./main.cpp:		globalSetup->xOverType = Uniform;
+./main.cpp:		globalSetup->xOverType = SBX;
+./main.cpp:	switch (globalSetup->xOverType) {
+./main.cpp:		globalSetup->xOverParameters = new double[1];
+./main.cpp:			((double*)globalSetup->xOverParameters)[0] = 0.5;
+./main.cpp:			((double*)globalSetup->xOverParameters)[0]
+./main.cpp:		if ((((double*)globalSetup->xOverParameters)[0] <= 0.0)||(((double*)globalSetup->xOverParameters)[0] >= 1.0)) {
+./main.cpp:		globalSetup->xOverParameters = new double[2];
+./main.cpp:			((double*)globalSetup->xOverParameters)[0] = 0.5;
+./main.cpp:			((double*)globalSetup->xOverParameters)[0]
+./main.cpp:		if ((((double*)globalSetup->xOverParameters)[0] <= 0.0)||(((double*)globalSetup->xOverParameters)[0] >= 1.0)) {
+./main.cpp:			((double*)globalSetup->xOverParameters)[1] = 10;
+./main.cpp:			((double*)globalSetup->xOverParameters)[1]
+./main.cpp:		if (((double*)globalSetup->xOverParameters)[1] < 0.0) {
+./main.cpp:		globalSetup->mutationProbability = 0.1;
+./main.cpp:	else if (((globalSetup->mutationProbability = atof(pToken)) < 0.0)
+./main.cpp:			|| (globalSetup->mutationProbability > 1.0)) {
+./main.cpp:		globalSetup->mutationType = Polynomial;
+./main.cpp:		globalSetup->mutationType = Selective;
+./main.cpp:		globalSetup->mutationType = Genewise;
+./main.cpp:		globalSetup->mutationType = Polynomial;
+./main.cpp:	switch (globalSetup->mutationType) {
+./main.cpp:		globalSetup->mutationParameters = new int[1];
+./main.cpp:			((int*)globalSetup->mutationParameters)[0] = 20;
+./main.cpp:			((int*)globalSetup->mutationParameters)[0]
+./main.cpp:		if (((int*)globalSetup->mutationParameters)[0] < 0) {
+./main.cpp:		globalSetup->mutationParameters
+./main.cpp:				= new double[globalSetup->noOfDecisionVariables];
+./main.cpp:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp:				((double*)globalSetup->mutationParameters)[ii]
+./main.cpp:						= 0.1*(globalSetup->variableRanges[ii][1]
+./main.cpp:								- globalSetup->variableRanges[ii][0]);
+./main.cpp:				((double*)globalSetup->mutationParameters)[ii]
+./main.cpp:			if (((double*)globalSetup->mutationParameters)[ii] <= 0.0) {
+./main.cpp:		globalSetup->scalingMethod = NoScaling;
+./main.cpp:		globalSetup->scalingMethod = NoScaling;
+./main.cpp:		globalSetup->scalingMethod = Ranking;
+./main.cpp:		globalSetup->scalingMethod = SigmaScaling;
+./main.cpp:	switch (globalSetup->scalingMethod) {
+./main.cpp:		globalSetup->scalingParameters = new double[1];
+./main.cpp:			((double*)globalSetup->scalingParameters)[0] = 1.0;
+./main.cpp:			((double*)globalSetup->scalingParameters)[0]
+./main.cpp:		if (((double*)globalSetup->scalingParameters)[0] <= 0.0) {
+./main.cpp:		if (globalSetup->finalNoOfConstraints == 0) {
+./main.cpp:			globalSetup->constraintMethod = NoConstraints;
+./main.cpp:			globalSetup->constraintMethod = Tournament;
+./main.cpp:		globalSetup->constraintMethod = NoConstraints;
+./main.cpp:		globalSetup->constraintMethod = Penalty;
+./main.cpp:		globalSetup->constraintMethod = Tournament;
+./main.cpp:	if ((globalSetup->gaType == NSGA) && (globalSetup->constraintMethod
+./main.cpp:	if ((globalSetup->finalNoOfConstraints == 0)
+./main.cpp:			&& (globalSetup->constraintMethod != NoConstraints)) {
+./main.cpp:	switch (globalSetup->constraintMethod) {
+./main.cpp:			globalSetup->penaltyFunction = Linear;
+./main.cpp:			globalSetup->penaltyFunction = Linear;
+./main.cpp:			globalSetup->penaltyFunction = Quadratic;
+./main.cpp:		globalSetup->localSearchMethod = NoLocalSearch;
+./main.cpp:		globalSetup->localSearchMethod = NoLocalSearch;
+./main.cpp:		globalSetup->localSearchMethod = SimplexSearch;
+./main.cpp:	if ((globalSetup->localSearchMethod != NoLocalSearch)
+./main.cpp:			&& (globalSetup->gaType == NSGA)) {
+./main.cpp:	switch (globalSetup->localSearchMethod) {
+./main.cpp:			globalSetup->maxLocalTolerance = 1.0E-3;
+./main.cpp:			globalSetup->maxLocalTolerance = atof(pToken);
+./main.cpp:			globalSetup->maxLocalEvaluations = 20;
+./main.cpp:			globalSetup->maxLocalEvaluations = atoi(pToken);
+./main.cpp:			globalSetup->initialLocalPenaltyParameter = 1.0;
+./main.cpp:			globalSetup->initialLocalPenaltyParameter = atof(pToken);
+./main.cpp:			globalSetup->localUpdateParameter = 2.0;
+./main.cpp:			globalSetup->localUpdateParameter = atof(pToken);
+./main.cpp:			globalSetup->lamarckianProbability = 0.15;
+./main.cpp:			globalSetup->lamarckianProbability = atof(pToken);
+./main.cpp:			globalSetup->localSearchProbability = 0.5;
+./main.cpp:			globalSetup->localSearchProbability = atof(pToken);
+./main.cpp:		globalSetup->noOfStoppingCriterias = 0;
+./main.cpp:	else if ((globalSetup->noOfStoppingCriterias = atoi(pToken)) < 0) {
+./main.cpp:	} else if (globalSetup->noOfStoppingCriterias == 0) {
+./main.cpp:	if (globalSetup->noOfStoppingCriterias > 0) {
+./main.cpp:			globalSetup->genNumWindow = 5;
+./main.cpp:			globalSetup->genNumWindow = atoi(pToken);
+./main.cpp:		if (globalSetup->genNumWindow <= 0) {
+./main.cpp:		globalSetup->otherStoppingCriteria
+./main.cpp:				= new StoppingCriterias[globalSetup->noOfStoppingCriterias];
+./main.cpp:		globalSetup->stoppingParameter
+./main.cpp:				= new double[globalSetup->noOfStoppingCriterias];
+./main.cpp:		for (ii = 0; ii < globalSetup->noOfStoppingCriterias; ii++) {
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = NoOfEvaluations;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = FitnessVariance;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = AverageFitness;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = AverageObjective;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = ChangeInBestFitness;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = ChangeInAvgFitness;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = ChangeInFitnessVar;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = ChangeInBestObjective;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = ChangeInAvgObjective;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = NoOfFronts;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = NoOfGuysInFirstFront;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = ChangeInNoOfFronts;
+./main.cpp:				globalSetup->otherStoppingCriteria[ii] = BestFitness;
+./main.cpp:			switch (globalSetup->otherStoppingCriteria[ii]) {
+./main.cpp:				if ((globalSetup->gaType != SGA) || (globalSetup->nichingType
+./main.cpp:				if (globalSetup->gaType != NSGA) {
+./main.cpp:			((double*)globalSetup->stoppingParameter)[ii]
+./main.cpp:		globalSetup->loadPopulation = false;
+./main.cpp:		globalSetup->evaluateAgain = true;
+./main.cpp:			globalSetup->loadPopulation = true;
+./main.cpp:			globalSetup->populationFileName = new char[256];
+./main.cpp:			strcpy(globalSetup->populationFileName, pToken);
+./main.cpp:				globalSetup->evaluateAgain = true;
+./main.cpp:				globalSetup->evaluateAgain = false;
+./main.cpp:				globalSetup->evaluateAgain = true;
+./main.cpp:			globalSetup->loadPopulation = false;
+./main.cpp:			globalSetup->evaluateAgain = true;
+./main.cpp:		globalSetup->savePopulation = true;
+./main.cpp:		globalSetup->saveEvalSolutions = new char[256];
+./main.cpp:		scanf("%s", globalSetup->saveEvalSolutions);
+./main.cpp:			globalSetup->savePopulation = true;
+./main.cpp:			globalSetup->saveEvalSolutions = new char[256];
+./main.cpp:			strcpy(globalSetup->saveEvalSolutions, pToken);
+./main.cpp:	if (globalSetup->savePopulation) {
+./main.cpp:		fOutput = fopen(globalSetup->saveEvalSolutions, "w");
+./main.cpp:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp:		for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp:		if (globalSetup->finalNoOfConstraints > 0) {
+./main.cpp:			for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++) {
+./main.cpp:	if (globalSetup->gaType == SGA) {
+./main.cpp:	delete [](globalSetup->penaltyWeights);
+./main.cpp:	delete [](globalSetup->variableTypes);
+./main.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp:		delete [](globalSetup->variableRanges[ii]);
+./main.cpp:	delete [](globalSetup->variableRanges);
+./main.cpp:	delete [](globalSetup->typeOfOptimizations);
+./main.cpp:	if ((globalSetup->selectionType == TournamentWR)
+./main.cpp:			||(globalSetup->selectionType == TournamentWOR)
+./main.cpp:			||(globalSetup->selectionType == Truncation)) {
+./main.cpp:		delete [](int*)(globalSetup->selectionParameters);
+./main.cpp:	if ((globalSetup->xOverType==Uniform)||(globalSetup->xOverType == SBX))
+./main.cpp:		delete [](double*)(globalSetup->xOverParameters);
+./main.cpp:	if (globalSetup->mutationType == Polynomial)
+./main.cpp:		delete [](int*)(globalSetup->mutationParameters);
+./main.cpp:	else if (globalSetup->mutationType == Genewise)
+./main.cpp:		delete [](double*)(globalSetup->mutationParameters);
+./main.cpp:	if (globalSetup->nichingType == RTS)
+./main.cpp:		delete [](int*)(globalSetup->nichingParameters);
+./main.cpp:	if (globalSetup->nichingType == Sharing)
+./main.cpp:		delete [](double*)(globalSetup->nichingParameters);
+./main.cpp:	if (globalSetup->scalingMethod == SigmaScaling)
+./main.cpp:		delete [](double*)(globalSetup->scalingParameters);
+./main.cpp:	if (globalSetup->noOfStoppingCriterias > 0) {
+./main.cpp:		delete [] globalSetup->otherStoppingCriteria;
+./main.cpp:		delete [](double*)(globalSetup->stoppingParameter);
+./main.cpp:	if (globalSetup->loadPopulation)
+./main.cpp:		delete [](globalSetup->populationFileName);
+./main.cpp:	if (globalSetup->savePopulation)
+./main.cpp:		delete [](globalSetup->saveEvalSolutions);
+./main.cpp~:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp~:	if (globalSetup->gaType == SGA || globalSetup->gaType == NSGA  ) {
+./main.cpp~:		Cell_3 cellArray[globalSetup->noOfDecisionVariables/9];
+./main.cpp~:	/*if (globalSetup->savePopulation) {
+./main.cpp~:		outEvals = fopen(globalSetup->saveEvalSolutions, "a");
+./main.cpp~:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp~:		for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp~:		if (globalSetup->finalNoOfConstraints > 0) {
+./main.cpp~:			for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++) {
+./main.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp~:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp~:		globalSetup->gaType = SGA;
+./main.cpp~:		globalSetup->gaType = NSGA;
+./main.cpp~:	if ((globalSetup->noOfDecisionVariables = atoi(pToken)) <= 0) {
+./main.cpp~:	globalSetup->variableTypes = new VariableType[globalSetup->noOfDecisionVariables];
+./main.cpp~:	globalSetup->variableRanges = new double*[(globalSetup->noOfDecisionVariables)];
+./main.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp~:			globalSetup->variableTypes[ii] = Real;
+./main.cpp~:			globalSetup->variableTypes[ii] = Integer;
+./main.cpp~:		globalSetup->variableRanges[ii] = new double[2];
+./main.cpp~:		globalSetup->variableRanges[ii][0] = atof(pToken);
+./main.cpp~:		globalSetup->variableRanges[ii][1] = atof(pToken);
+./main.cpp~:		if (globalSetup->variableRanges[ii][1]
+./main.cpp~:				<= globalSetup->variableRanges[ii][0]) {
+./main.cpp~:					globalSetup->variableRanges[ii][0],
+./main.cpp~:					globalSetup->variableRanges[ii][1]);
+./main.cpp~:	if ((globalSetup->noOfRawObjectives = atoi(pToken)) <= 0) {
+./main.cpp~:	globalSetup->finalNoOfObjectives = globalSetup->noOfRawObjectives;
+./main.cpp~:	globalSetup->noOfLinearObjectiveCombinations = 0;
+./main.cpp~:	globalSetup->typeOfOptimizations
+./main.cpp~:			= new OptimType[globalSetup->finalNoOfObjectives];
+./main.cpp~:	for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp~:			globalSetup->typeOfOptimizations[ii] = Minimization;
+./main.cpp~:			globalSetup->typeOfOptimizations[ii] = Maximization;
+./main.cpp~:	if ((globalSetup->noOfRawConstraints = atoi(pToken)) < 0) {
+./main.cpp~:	} else if (globalSetup->noOfRawConstraints == 0) {
+./main.cpp~:	globalSetup->noOfLinearConstraintCombinations = 0;
+./main.cpp~:	globalSetup->finalNoOfConstraints = globalSetup->noOfRawConstraints;
+./main.cpp~:	globalSetup->penaltyWeights = new double[globalSetup->finalNoOfConstraints];
+./main.cpp~:	for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++) {
+./main.cpp~:		globalSetup->penaltyWeights[ii] = atof(pToken);
+./main.cpp~:		if (globalSetup->noOfDecisionVariables > 2)
+./main.cpp~:			globalSetup->populationSize = (int)(30
+./main.cpp~:					*(globalSetup->noOfDecisionVariables)
+./main.cpp~:					*log((double)(globalSetup->noOfDecisionVariables)));
+./main.cpp~:			globalSetup->populationSize = (int)(30
+./main.cpp~:					*(globalSetup->noOfDecisionVariables));
+./main.cpp~:		if ((globalSetup->populationSize)%10)
+./main.cpp~:			globalSetup->populationSize += (globalSetup->populationSize)%10;
+./main.cpp~:		printf("The population size used is: %d\n", globalSetup->populationSize);
+./main.cpp~:	else if ((globalSetup->populationSize = atoi(pToken)) <= 0) {
+./main.cpp~:	} else if ((globalSetup->populationSize % 2) != 0) {
+./main.cpp~:		globalSetup->maxGenerations = 6*(globalSetup->noOfDecisionVariables);
+./main.cpp~:		if ((globalSetup->maxGenerations)%10)
+./main.cpp~:			globalSetup->maxGenerations += 10-(globalSetup->maxGenerations)%10;
+./main.cpp~:				globalSetup->maxGenerations);
+./main.cpp~:	} else if ((globalSetup->maxGenerations = atoi(pToken)) <= 0) {
+./main.cpp~:	//cout << "test: " << globalSetup->maxGenerations << endl;
+./main.cpp~:		globalSetup->replaceProportion = 0.9;
+./main.cpp~:	} else if (((globalSetup->replaceProportion = atof(pToken)) <= 0.0)
+./main.cpp~:			|| (globalSetup->replaceProportion > 1.0)) {
+./main.cpp~:		globalSetup->nichingType = NoNiching;
+./main.cpp~:		globalSetup->nichingType = NoNiching;
+./main.cpp~:		globalSetup->nichingParameters = NULL;
+./main.cpp~:		globalSetup->nichingType = Sharing;
+./main.cpp~:		globalSetup->nichingType = RTS;
+./main.cpp~:		globalSetup->nichingType = DeterministicCrowding;
+./main.cpp~:	if ((globalSetup->gaType == NSGA)
+./main.cpp~:			&& (globalSetup->nichingType != NoNiching)) {
+./main.cpp~:	switch (globalSetup->nichingType) {
+./main.cpp~:		globalSetup->nichingParameters = new double[2];
+./main.cpp~:			((double *)(globalSetup->nichingParameters))[0] = 4.24;
+./main.cpp~:			((double *)globalSetup->nichingParameters)[0]
+./main.cpp~:		if (((double*)globalSetup->nichingParameters)[0] <= 0.0) {
+./main.cpp~:			((double*)(globalSetup->nichingParameters))[1] = 1.0;
+./main.cpp~:			((double*)(globalSetup->nichingParameters))[1] = atof(pToken);
+./main.cpp~:		globalSetup->nichingParameters = new int[1];
+./main.cpp~:			if (globalSetup->noOfDecisionVariables
+./main.cpp~:					< (globalSetup->populationSize/20))
+./main.cpp~:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp~:						= globalSetup->noOfDecisionVariables;
+./main.cpp~:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp~:						= (globalSetup->populationSize)/20;
+./main.cpp~:			if (globalSetup->noOfDecisionVariables < 20)
+./main.cpp~:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp~:						= (globalSetup->populationSize)/20;
+./main.cpp~:			if (((int*)globalSetup->nichingParameters)[0]
+./main.cpp~:					> globalSetup->populationSize)
+./main.cpp~:				((int*)(globalSetup->nichingParameters))[0]
+./main.cpp~:						= globalSetup->populationSize;
+./main.cpp~:			printf("The window size used for RTR is: %d\n", ((int*)globalSetup->nichingParameters)[0]);
+./main.cpp~:			((int*)(globalSetup->nichingParameters))[0] = atoi(pToken);
+./main.cpp~:		if ((((int*)globalSetup->nichingParameters)[0] <= 0) || (((int*)globalSetup->nichingParameters)[0]
+./main.cpp~:				> globalSetup->populationSize)) {
+./main.cpp~:		globalSetup->selectionType = TournamentWOR;
+./main.cpp~:		globalSetup->selectionType = TournamentWOR;
+./main.cpp~:		globalSetup->selectionType = SUS;
+./main.cpp~:		globalSetup->selectionType = Truncation;
+./main.cpp~:		globalSetup->selectionType = RouletteWheel;
+./main.cpp~:		globalSetup->selectionType = TournamentWR;
+./main.cpp~:	if ((globalSetup->gaType == NSGA) && ((globalSetup->selectionType == SUS)
+./main.cpp~:			|| (globalSetup->selectionType == RouletteWheel))) {
+./main.cpp~:	switch (globalSetup->selectionType) {
+./main.cpp~:		globalSetup->selectionParameters = new int[1];
+./main.cpp~:			((int*)globalSetup->selectionParameters)[0] = 2;
+./main.cpp~:			((int*)globalSetup->selectionParameters)[0]
+./main.cpp~:		globalSetup->xOverProbability = 0.9;
+./main.cpp~:	else if (((globalSetup->xOverProbability = atof(pToken)) < 0.0)
+./main.cpp~:			|| (globalSetup->xOverProbability > 1.0)) {
+./main.cpp~:		globalSetup->xOverType = SBX;
+./main.cpp~:		globalSetup->xOverType = OnePoint;
+./main.cpp~:		globalSetup->xOverType = TwoPoint;
+./main.cpp~:		globalSetup->xOverType = Uniform;
+./main.cpp~:		globalSetup->xOverType = SBX;
+./main.cpp~:	switch (globalSetup->xOverType) {
+./main.cpp~:		globalSetup->xOverParameters = new double[1];
+./main.cpp~:			((double*)globalSetup->xOverParameters)[0] = 0.5;
+./main.cpp~:			((double*)globalSetup->xOverParameters)[0]
+./main.cpp~:		if ((((double*)globalSetup->xOverParameters)[0] <= 0.0)||(((double*)globalSetup->xOverParameters)[0] >= 1.0)) {
+./main.cpp~:		globalSetup->xOverParameters = new double[2];
+./main.cpp~:			((double*)globalSetup->xOverParameters)[0] = 0.5;
+./main.cpp~:			((double*)globalSetup->xOverParameters)[0]
+./main.cpp~:		if ((((double*)globalSetup->xOverParameters)[0] <= 0.0)||(((double*)globalSetup->xOverParameters)[0] >= 1.0)) {
+./main.cpp~:			((double*)globalSetup->xOverParameters)[1] = 10;
+./main.cpp~:			((double*)globalSetup->xOverParameters)[1]
+./main.cpp~:		if (((double*)globalSetup->xOverParameters)[1] < 0.0) {
+./main.cpp~:		globalSetup->mutationProbability = 0.1;
+./main.cpp~:	else if (((globalSetup->mutationProbability = atof(pToken)) < 0.0)
+./main.cpp~:			|| (globalSetup->mutationProbability > 1.0)) {
+./main.cpp~:		globalSetup->mutationType = Polynomial;
+./main.cpp~:		globalSetup->mutationType = Selective;
+./main.cpp~:		globalSetup->mutationType = Genewise;
+./main.cpp~:		globalSetup->mutationType = Polynomial;
+./main.cpp~:	switch (globalSetup->mutationType) {
+./main.cpp~:		globalSetup->mutationParameters = new int[1];
+./main.cpp~:			((int*)globalSetup->mutationParameters)[0] = 20;
+./main.cpp~:			((int*)globalSetup->mutationParameters)[0]
+./main.cpp~:		if (((int*)globalSetup->mutationParameters)[0] < 0) {
+./main.cpp~:		globalSetup->mutationParameters
+./main.cpp~:				= new double[globalSetup->noOfDecisionVariables];
+./main.cpp~:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp~:				((double*)globalSetup->mutationParameters)[ii]
+./main.cpp~:						= 0.1*(globalSetup->variableRanges[ii][1]
+./main.cpp~:								- globalSetup->variableRanges[ii][0]);
+./main.cpp~:				((double*)globalSetup->mutationParameters)[ii]
+./main.cpp~:			if (((double*)globalSetup->mutationParameters)[ii] <= 0.0) {
+./main.cpp~:		globalSetup->scalingMethod = NoScaling;
+./main.cpp~:		globalSetup->scalingMethod = NoScaling;
+./main.cpp~:		globalSetup->scalingMethod = Ranking;
+./main.cpp~:		globalSetup->scalingMethod = SigmaScaling;
+./main.cpp~:	switch (globalSetup->scalingMethod) {
+./main.cpp~:		globalSetup->scalingParameters = new double[1];
+./main.cpp~:			((double*)globalSetup->scalingParameters)[0] = 1.0;
+./main.cpp~:			((double*)globalSetup->scalingParameters)[0]
+./main.cpp~:		if (((double*)globalSetup->scalingParameters)[0] <= 0.0) {
+./main.cpp~:		if (globalSetup->finalNoOfConstraints == 0) {
+./main.cpp~:			globalSetup->constraintMethod = NoConstraints;
+./main.cpp~:			globalSetup->constraintMethod = Tournament;
+./main.cpp~:		globalSetup->constraintMethod = NoConstraints;
+./main.cpp~:		globalSetup->constraintMethod = Penalty;
+./main.cpp~:		globalSetup->constraintMethod = Tournament;
+./main.cpp~:	if ((globalSetup->gaType == NSGA) && (globalSetup->constraintMethod
+./main.cpp~:	if ((globalSetup->finalNoOfConstraints == 0)
+./main.cpp~:			&& (globalSetup->constraintMethod != NoConstraints)) {
+./main.cpp~:	switch (globalSetup->constraintMethod) {
+./main.cpp~:			globalSetup->penaltyFunction = Linear;
+./main.cpp~:			globalSetup->penaltyFunction = Linear;
+./main.cpp~:			globalSetup->penaltyFunction = Quadratic;
+./main.cpp~:		globalSetup->localSearchMethod = NoLocalSearch;
+./main.cpp~:		globalSetup->localSearchMethod = NoLocalSearch;
+./main.cpp~:		globalSetup->localSearchMethod = SimplexSearch;
+./main.cpp~:	if ((globalSetup->localSearchMethod != NoLocalSearch)
+./main.cpp~:			&& (globalSetup->gaType == NSGA)) {
+./main.cpp~:	switch (globalSetup->localSearchMethod) {
+./main.cpp~:			globalSetup->maxLocalTolerance = 1.0E-3;
+./main.cpp~:			globalSetup->maxLocalTolerance = atof(pToken);
+./main.cpp~:			globalSetup->maxLocalEvaluations = 20;
+./main.cpp~:			globalSetup->maxLocalEvaluations = atoi(pToken);
+./main.cpp~:			globalSetup->initialLocalPenaltyParameter = 1.0;
+./main.cpp~:			globalSetup->initialLocalPenaltyParameter = atof(pToken);
+./main.cpp~:			globalSetup->localUpdateParameter = 2.0;
+./main.cpp~:			globalSetup->localUpdateParameter = atof(pToken);
+./main.cpp~:			globalSetup->lamarckianProbability = 0.15;
+./main.cpp~:			globalSetup->lamarckianProbability = atof(pToken);
+./main.cpp~:			globalSetup->localSearchProbability = 0.5;
+./main.cpp~:			globalSetup->localSearchProbability = atof(pToken);
+./main.cpp~:		globalSetup->noOfStoppingCriterias = 0;
+./main.cpp~:	else if ((globalSetup->noOfStoppingCriterias = atoi(pToken)) < 0) {
+./main.cpp~:	} else if (globalSetup->noOfStoppingCriterias == 0) {
+./main.cpp~:	if (globalSetup->noOfStoppingCriterias > 0) {
+./main.cpp~:			globalSetup->genNumWindow = 5;
+./main.cpp~:			globalSetup->genNumWindow = atoi(pToken);
+./main.cpp~:		if (globalSetup->genNumWindow <= 0) {
+./main.cpp~:		globalSetup->otherStoppingCriteria
+./main.cpp~:				= new StoppingCriterias[globalSetup->noOfStoppingCriterias];
+./main.cpp~:		globalSetup->stoppingParameter
+./main.cpp~:				= new double[globalSetup->noOfStoppingCriterias];
+./main.cpp~:		for (ii = 0; ii < globalSetup->noOfStoppingCriterias; ii++) {
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = NoOfEvaluations;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = FitnessVariance;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = AverageFitness;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = AverageObjective;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = ChangeInBestFitness;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = ChangeInAvgFitness;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = ChangeInFitnessVar;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = ChangeInBestObjective;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = ChangeInAvgObjective;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = NoOfFronts;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = NoOfGuysInFirstFront;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = ChangeInNoOfFronts;
+./main.cpp~:				globalSetup->otherStoppingCriteria[ii] = BestFitness;
+./main.cpp~:			switch (globalSetup->otherStoppingCriteria[ii]) {
+./main.cpp~:				if ((globalSetup->gaType != SGA) || (globalSetup->nichingType
+./main.cpp~:				if (globalSetup->gaType != NSGA) {
+./main.cpp~:			((double*)globalSetup->stoppingParameter)[ii]
+./main.cpp~:		globalSetup->loadPopulation = false;
+./main.cpp~:		globalSetup->evaluateAgain = true;
+./main.cpp~:			globalSetup->loadPopulation = true;
+./main.cpp~:			globalSetup->populationFileName = new char[256];
+./main.cpp~:			strcpy(globalSetup->populationFileName, pToken);
+./main.cpp~:				globalSetup->evaluateAgain = true;
+./main.cpp~:				globalSetup->evaluateAgain = false;
+./main.cpp~:				globalSetup->evaluateAgain = true;
+./main.cpp~:			globalSetup->loadPopulation = false;
+./main.cpp~:			globalSetup->evaluateAgain = true;
+./main.cpp~:		globalSetup->savePopulation = true;
+./main.cpp~:		globalSetup->saveEvalSolutions = new char[256];
+./main.cpp~:		scanf("%s", globalSetup->saveEvalSolutions);
+./main.cpp~:			globalSetup->savePopulation = true;
+./main.cpp~:			globalSetup->saveEvalSolutions = new char[256];
+./main.cpp~:			strcpy(globalSetup->saveEvalSolutions, pToken);
+./main.cpp~:	if (globalSetup->savePopulation) {
+./main.cpp~:		fOutput = fopen(globalSetup->saveEvalSolutions, "w");
+./main.cpp~:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp~:		for (ii = 0; ii < globalSetup->finalNoOfObjectives; ii++) {
+./main.cpp~:		if (globalSetup->finalNoOfConstraints > 0) {
+./main.cpp~:			for (ii = 0; ii < globalSetup->finalNoOfConstraints; ii++) {
+./main.cpp~:	if (globalSetup->gaType == SGA) {
+./main.cpp~:	delete [](globalSetup->penaltyWeights);
+./main.cpp~:	delete [](globalSetup->variableTypes);
+./main.cpp~:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++) {
+./main.cpp~:		delete [](globalSetup->variableRanges[ii]);
+./main.cpp~:	delete [](globalSetup->variableRanges);
+./main.cpp~:	delete [](globalSetup->typeOfOptimizations);
+./main.cpp~:	if ((globalSetup->selectionType == TournamentWR)
+./main.cpp~:			||(globalSetup->selectionType == TournamentWOR)
+./main.cpp~:			||(globalSetup->selectionType == Truncation)) {
+./main.cpp~:		delete [](int*)(globalSetup->selectionParameters);
+./main.cpp~:	if ((globalSetup->xOverType==Uniform)||(globalSetup->xOverType == SBX))
+./main.cpp~:		delete [](double*)(globalSetup->xOverParameters);
+./main.cpp~:	if (globalSetup->mutationType == Polynomial)
+./main.cpp~:		delete [](int*)(globalSetup->mutationParameters);
+./main.cpp~:	else if (globalSetup->mutationType == Genewise)
+./main.cpp~:		delete [](double*)(globalSetup->mutationParameters);
+./main.cpp~:	if (globalSetup->nichingType == RTS)
+./main.cpp~:		delete [](int*)(globalSetup->nichingParameters);
+./main.cpp~:	if (globalSetup->nichingType == Sharing)
+./main.cpp~:		delete [](double*)(globalSetup->nichingParameters);
+./main.cpp~:	if (globalSetup->scalingMethod == SigmaScaling)
+./main.cpp~:		delete [](double*)(globalSetup->scalingParameters);
+./main.cpp~:	if (globalSetup->noOfStoppingCriterias > 0) {
+./main.cpp~:		delete [] globalSetup->otherStoppingCriteria;
+./main.cpp~:		delete [](double*)(globalSetup->stoppingParameter);
+./main.cpp~:	if (globalSetup->loadPopulation)
+./main.cpp~:		delete [](globalSetup->populationFileName);
+./main.cpp~:	if (globalSetup->savePopulation)
+./main.cpp~:		delete [](globalSetup->saveEvalSolutions);
+./nsgapopulation.cpp:  int ii, combinedPopSize = 2*(globalSetup->populationSize);
+./nsgapopulation.cpp:  bestobj = new double[globalSetup->finalNoOfObjectives];
+./nsgapopulation.cpp:  worstobj = new double[globalSetup->finalNoOfObjectives];
+./nsgapopulation.cpp:  avgobj = new double[globalSetup->finalNoOfObjectives];
+./nsgapopulation.cpp:  maxfit = new double[globalSetup->finalNoOfObjectives];
+./nsgapopulation.cpp:  minfit = new double[globalSetup->finalNoOfObjectives];
+./nsgapopulation.cpp:  avgfit = new double[globalSetup->finalNoOfObjectives];  
+./nsgapopulation.cpp:  varfit = new double[globalSetup->finalNoOfObjectives];  
+./nsgapopulation.cpp:  int ii, combinedPopSize = 2*(globalSetup->populationSize);
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = 2*(globalSetup->populationSize);
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = 2*(globalSetup->populationSize);
+./nsgapopulation.cpp:    for(jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = 2*(globalSetup->populationSize);
+./nsgapopulation.cpp:  for(jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./nsgapopulation.cpp:      if(globalSetup->typeOfOptimizations[jj] == Maximization) {
+./nsgapopulation.cpp:      if(globalSetup->typeOfOptimizations[jj]==Minimization) {
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = 2*(globalSetup->populationSize);
+./nsgapopulation.cpp:  for(jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = globalSetup->populationSize;
+./nsgapopulation.cpp:    popSize = 2*(globalSetup->populationSize);
+./nsgapopulation.cpp:  for (jj=0; jj<globalSetup->finalNoOfObjectives; jj++) {
+./nsgapopulation.cpp:    if (globalSetup->typeOfOptimizations[jj] == Maximization) 
+./population.cpp:	guys = new Individual*[globalSetup->populationSize];
+./population.cpp:	newGuys = new Individual*[globalSetup->populationSize];
+./population.cpp:	if (globalSetup->gaType==SGA) {
+./population.cpp:		freezeMask = new int[globalSetup->noOfDecisionVariables];
+./population.cpp:		for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./population.cpp:		for (ii=0; ii<globalSetup->populationSize; ii++) {
+./population.cpp:		for (ii=0; ii<globalSetup->populationSize; ii++) {
+./population.cpp:	mpool = new int[globalSetup->populationSize];
+./population.cpp:	switch (globalSetup->selectionType) {
+./population.cpp:		selection = new TournamentSelection(*((int *)globalSetup->selectionParameters), this);
+./population.cpp:		selection = new TruncationSelection(*((int *)globalSetup->selectionParameters), this);
+./population.cpp:		selection = new TournamentSelectionWithReplacement(*((int *)globalSetup->selectionParameters), this);
+./population.cpp:	switch (globalSetup->xOverType) {
+./population.cpp:		if (globalSetup->xOverParameters==NULL)
+./population.cpp:			crossover = new UniformCrossover(((double *)globalSetup->xOverParameters)[0]);
+./population.cpp:		if (globalSetup->xOverParameters==NULL)
+./population.cpp:			crossover = new SimulatedBinaryCrossover(((double *)globalSetup->xOverParameters)[0]);
+./population.cpp:	if (globalSetup->loadPopulation) {
+./population.cpp:	if (globalSetup->gaType==SGA) {
+./population.cpp:		switch (globalSetup->localSearchMethod) {
+./population.cpp:		if ((globalSetup->selectionType == SUS)|| (globalSetup->selectionType
+./population.cpp:				== RouletteWheel)|| (globalSetup->nichingType == Sharing)) {
+./population.cpp:			if (globalSetup->nichingType == Sharing)
+./population.cpp:	if (globalSetup->gaType==SGA) {
+./population.cpp:		if (globalSetup->nichingType == NoNiching) {
+./population.cpp:			for (jj = 0; jj < globalSetup->noOfDecisionVariables; jj++)
+./population.cpp:			for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:				for (jj = 0; jj < globalSetup->noOfDecisionVariables; jj++)
+./population.cpp:		for (jj = 0; jj < globalSetup->finalNoOfObjectives; jj++)
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:			for (jj = 0; jj < globalSetup->finalNoOfObjectives; jj++)
+./population.cpp:	for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:	if (globalSetup->gaType == SGA) {
+./population.cpp:	int windowSize = ((int *)globalSetup->nichingParameters)[0];
+./population.cpp:	tempGuys = new Individual*[globalSetup->populationSize];
+./population.cpp:	for (ii = 0; ii < globalSetup->populationSize; ii++)
+./population.cpp:	for (ii = 0; ii < globalSetup->noOfDecisionVariables; ii++)
+./population.cpp:		maxDist += ((globalSetup->variableRanges[ii][1]
+./population.cpp:				- globalSetup->variableRanges[ii][0])
+./population.cpp:				*(globalSetup->variableRanges[ii][1]
+./population.cpp:						- globalSetup->variableRanges[ii][0]));
+./population.cpp:	for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:					globalSetup->populationSize);
+./population.cpp:			for (kk = 0; kk < globalSetup->noOfDecisionVariables; kk++)
+./population.cpp:	for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:	double sigmaShare = ((double *)globalSetup->nichingParameters)[0];
+./population.cpp:	double shareAlpha = ((double *)globalSetup->nichingParameters)[1];
+./population.cpp:	arraySize = ((globalSetup->populationSize)*(globalSetup->populationSize-1))
+./population.cpp:	for (ii = 0; ii < globalSetup->populationSize-1; ii++) {
+./population.cpp:		for (jj = ii + 1; jj < globalSetup->populationSize; jj++) {
+./population.cpp:			for (kk = 0; kk < globalSetup->noOfDecisionVariables; kk++) {
+./population.cpp:			transIndex = (globalSetup->populationSize)*jj + (ii-jj-1) - (jj*(jj
+./population.cpp:	if ((globalSetup->gaType == SGA)&& (globalSetup->nichingType == NoNiching)
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:	if ((globalSetup->gaType == SGA)&& (globalSetup->nichingType == NoNiching)) {
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:	oneOverPopulationSize = 1.0/(1.0*(globalSetup->populationSize));
+./population.cpp:	for (ii = 1; ii < globalSetup->populationSize; ii++) {
+./population.cpp:	oneOverPopulationSize = 1.0/(1.0*(globalSetup->populationSize));
+./population.cpp:	for (ii = 1; ii < globalSetup->populationSize; ii++) {
+./population.cpp:	variableValues = new double[globalSetup->noOfDecisionVariables];
+./population.cpp:	objValues = new double[globalSetup->finalNoOfObjectives];
+./population.cpp:	constViolValues = new double[globalSetup->finalNoOfConstraints];
+./population.cpp:	std::ifstream infile(globalSetup->populationFileName);
+./population.cpp:	if (numSolutions > globalSetup->populationSize)
+./population.cpp:		numToLoad = globalSetup->populationSize;
+./population.cpp:		for (jj = 0; jj < globalSetup->noOfDecisionVariables; jj++) {
+./population.cpp:		for (jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./population.cpp:		if (globalSetup->finalNoOfConstraints) {
+./population.cpp:			for (jj = 0; jj < globalSetup->finalNoOfConstraints; jj++) {
+./population.cpp:	if (globalSetup->evaluateAgain) {
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:			if (globalSetup->gaType == NSGA) {
+./population.cpp:				for (jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./population.cpp:				for (jj = 0; jj < globalSetup->finalNoOfConstraints; jj++) {
+./population.cpp:				for (jj = 0; jj < globalSetup->finalNoOfConstraints; jj++) {
+./population.cpp:	} else if (numSolutions < globalSetup->populationSize) {
+./population.cpp:		for (ii = numSolutions; ii < globalSetup->populationSize; ii++) {
+./population.cpp:			if (globalSetup->gaType == NSGA) {
+./population.cpp:				for (jj = 0; jj < globalSetup->finalNoOfObjectives; jj++) {
+./population.cpp:				for (jj = 0; jj < globalSetup->finalNoOfConstraints; jj++) {
+./population.cpp:				for (jj = 0; jj < globalSetup->finalNoOfConstraints; jj++) {
+./population.cpp:	if (globalSetup->nichingType != DeterministicCrowding)
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++)
+./population.cpp:	numGlobalEvals = globalSetup->populationSize;
+./population.cpp:	if ((globalSetup->gaType == SGA) && (globalSetup->localSearchMethod
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:			if (myRandom.flip(globalSetup->localSearchProbability)) {
+./population.cpp:				if (myRandom.flip(globalSetup->lamarckianProbability))
+./population.cpp:					for (jj = 0; jj < globalSetup->noOfDecisionVariables; jj++)
+./population.cpp:	if (fabs(globalSetup->replaceProportion - 1.0) <= ZERO) {
+./population.cpp:		randomArray1 = new int[globalSetup->populationSize];
+./population.cpp:		randomArray2 = new int[globalSetup->populationSize];
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:		rankingQuickSort(randomArray1, 0, globalSetup->populationSize);
+./population.cpp:		rankingQuickSort(randomArray2, 0, globalSetup->populationSize);
+./population.cpp:		eliteGuys = new Individual*[globalSetup->populationSize];
+./population.cpp:		startIndex = (int)((1.0-globalSetup->replaceProportion)
+./population.cpp:				*(globalSetup->populationSize));
+./population.cpp:			eliteGuys[ii] = new Individual(newGuys[randomArray2[globalSetup->populationSize-1-ii]]);
+./population.cpp:		for (ii = startIndex; ii < globalSetup->populationSize; ii++)
+./population.cpp:					= new Individual(guys[randomArray1[globalSetup->populationSize - 1 - ii + startIndex]]);
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:	for (ii = 0; ii < globalSetup->populationSize; ii += 2)
+./population.cpp:		if (myRandom.flip(globalSetup->xOverProbability))
+./population.cpp:	for (ii = 0; ii < globalSetup->populationSize; ii++)
+./population.cpp:	if (*(globalSetup->typeOfOptimizations) == Maximization) {
+./population.cpp:		switch (globalSetup->constraintMethod) {
+./population.cpp:			for (ii = 0; ii < globalSetup->populationSize; ii++)
+./population.cpp:			for (ii = 0; ii < globalSetup->populationSize; ii++)
+./population.cpp:		switch (globalSetup->constraintMethod) {
+./population.cpp:			for (ii=0; ii<globalSetup->populationSize; ii++)
+./population.cpp:			for (ii = 0; ii < globalSetup->populationSize; ii++)
+./population.cpp:	randomArray = new int[globalSetup->populationSize];
+./population.cpp:	switch (globalSetup->scalingMethod) {
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++)
+./population.cpp:		rankingQuickSort(randomArray, 0, globalSetup->populationSize);
+./population.cpp:		scaledFitness = 1.0*(globalSetup->populationSize);
+./population.cpp:		newGuys[randomArray[globalSetup->populationSize - 1]]->setFitness(scaledFitness);
+./population.cpp:		for (ii = globalSetup->populationSize-2; ii >= 0; ii--) {
+./population.cpp:		sigmaParam = ((double *)globalSetup->scalingParameters)[0];
+./population.cpp:		for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./population.cpp:			for (ii = 0; ii < globalSetup->populationSize; ii++) {
+./selection.cpp:  randomArray = new int[globalSetup->populationSize];
+./selection.cpp:  winner = new int[globalSetup->populationSize];
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++) randomArray[ii] = ii;
+./selection.cpp:    myRandom.shuffleArray(randomArray, globalSetup->populationSize);
+./selection.cpp:    for(jj = 0; jj < globalSetup->populationSize; jj += tournamentSize) {
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++) 
+./selection.cpp:  winner = new int[globalSetup->populationSize];
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++) {
+./selection.cpp:    p1 = myRandom.boundedIntegerRandom(0,globalSetup->populationSize);
+./selection.cpp:      do{ p2 = myRandom.boundedIntegerRandom(0,globalSetup->populationSize); }while(p2 == p1);
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++) matingPool[ii] = winner[ii];
+./selection.cpp:  randomArray = new int[globalSetup->populationSize];
+./selection.cpp:  winner = new int[globalSetup->populationSize];
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++) randomArray[ii] = ii;
+./selection.cpp:  selectionQuickSort(pop, randomArray, 0, globalSetup->populationSize);
+./selection.cpp:  for(ii = 0, kk = 0; kk < globalSetup->populationSize; ii++) 
+./selection.cpp:      winner[kk++] = randomArray[globalSetup->populationSize-1-ii];
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++)  matingPool[ii] = winner[ii];
+./selection.cpp:  winner = new int[globalSetup->populationSize];
+./selection.cpp:  sumFit = new double[globalSetup->populationSize];
+./selection.cpp:  for(ii = 1; ii < globalSetup->populationSize; ii++) 
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++) {
+./selection.cpp:    rndNo = myRandom.boundedRandom(0,sumFit[globalSetup->populationSize-1]);
+./selection.cpp:    for(jj = 0; jj < globalSetup->populationSize; jj++) {
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++)  matingPool[ii] = winner[ii];
+./selection.cpp:  winner = new int[globalSetup->populationSize];
+./selection.cpp:  for(sum = 0.0, ii = 0; ii < globalSetup->populationSize; ii++) 
+./selection.cpp:  for(ii = 0; ii < globalSetup->populationSize; ii++)
+./selection.cpp:  if(globalSetup->gaType == SGA) {
+./selection.cpp:    switch(globalSetup->constraintMethod) {  
+./selection.cpp:  else if(globalSetup->gaType == NSGA) {

@@ -1,0 +1,19 @@
+0 #0=dblsided, 1=single-sided; use 0 normally
+2 # number triangles
+100 #sqrt-pts per triangle
+20 #box size along x
+20 #box size along y: note South is -y direction (I think)
+20 #box size along z
+7 #start month
+30 #start day
+2011 #start year
+7 #end day, month year
+30
+2011
+-71.09248 #longitude, WEST of Greenwhich is negative
+42.35994 #latitude, northern hemisphere is positive
+10.8889 #altitude - leave as is
+1013.25 #pressure - leave as is
+22 # temperature, leave as is
+-5 #GMT time
+flat35mm.txt #filename

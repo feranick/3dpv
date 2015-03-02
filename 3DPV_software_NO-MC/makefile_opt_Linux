@@ -1,0 +1,24 @@
+INCLUDE = -I/usr/include
+LIBDIR  = -L/usr/lib
+
+CC=gcc
+CFLAGS= -c -Wall $(INCLUDE) -mtune=native -fomit-frame-pointer -mfpmath=sse -msse -msse2 -msse3 -mmmx -m3dnow
+#CFLAGS= -c -Wall $(INCLUDE)
+LDFLAGS= $(LIBDIR)
+LIBRARIES = -lstdc++
+SOURCES=src/main.cpp src/Cell_3.cpp src/chromosome.cpp src/crossover.cpp src/ga.cpp src/geometry.cpp src/globalSetup.cpp src/individual.cpp src/localsearch.cpp src/nsgapopulation.cpp src/population.cpp src/random.cpp src/selection.cpp src/spa.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=solar3d
+
+all: $(SOURCES) $(EXECUTABLE)
+
+#$(EXECUTABLE): $(OBJECTS)
+#	$(CC) $(LDFLAGS) $(OBJECTS) -o $@ $(LIBDIR) $< $(LIBRARIES)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -O2 -o $@ $(LDFLAGS) $(LIBRARIES)
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -O2 -o $@ $(LDFLAGS)
+
+clean:
+	rm src/*.o

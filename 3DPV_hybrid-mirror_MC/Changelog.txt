@@ -1,0 +1,17 @@
+Version 20140303 - NF
+-----------------------
+- Fixed compilation for OSX Mavericks. Requires gcc 4.8 (macports).
+
+
+Version 20120819b - NF
+-----------------------
+- Added visualization of initial vs final energy and percentage gain for option 3
+- Added software release and developer info (it shows before the final display of data at the end of the calculation
+- Added changelog
+
+
+Version 20120819 - NF
+---------------------
+- Added visualization of initial vs final energy and percentage gain.
+- Added script folder
+- Added cube, flat, tall cube input data 

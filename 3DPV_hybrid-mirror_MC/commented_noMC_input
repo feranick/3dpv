@@ -1,0 +1,29 @@
+1					wether all cells are one-sided or not
+12					number of cells in the 3d solar cell
+200					the square root of the number of grid points per cell for ray-tracing 
+10					maximum x-dimension foot print size 
+10					maximum y-dimension foot print size
+10					maximum struture height
+8					starting month
+30					starting day
+2010					starting year
+10					ending month
+31					ending day
+2010					ending year
+-71.09248				longitude
+42.35994				latitude
+10.8889					avgtemp
+1013.25					avgpressure
+22					elevation
+-5					time from GMT
+4					initial population in the GA run (the first GA input)
+25					maximum number of generations in the GA run
+0.9					GA_replace_ratio
+2					tournament size in GA selection
+0.8					GA_cross_probability
+0.001					GA_mutation_probability
+1					wether GA will load initial population from files
+0					area restriction (according to Bryan, this is not used anymore)
+1					the number of distinct initial models for the GA run (e.g., if initial population is 4 and this number is 1, then 4 copies of the same 						model will be used as the initial population for the GA run. In general, this number must divide the number of initial population.)
+july_models/box_10x10_h10.txt		the file name of the distinct initial model (if there are more than one distinct initial model, e.g., the input in the last line is > 1, 						then there will be more file names after this line.)
+
