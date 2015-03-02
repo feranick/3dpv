@@ -1,7 +1,7 @@
 INCLUDE = -I/usr/include
 LIBDIR  = -L/usr/lib
 
-CC=gcc
+CC=g++
 CFLAGS= -c -Wall $(INCLUDE)
 LDFLAGS= $(LIBDIR)
 LIBRARIES = -lstdc++
