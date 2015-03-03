@@ -104,8 +104,8 @@ void TournamentSelectionWithReplacement::select(int *matingPool)
   int *winner;
 
   winner = new int[globalSetup->populationSize];
-  
   for(ii = 0; ii < globalSetup->populationSize; ii++) {
+    winner[ii] = 0;
     p1 = myRandom.boundedIntegerRandom(0,globalSetup->populationSize);
     for(jj = 1; jj < tournamentSize; jj++) {
       do{ p2 = myRandom.boundedIntegerRandom(0,globalSetup->populationSize); }while(p2 == p1);
