@@ -204,7 +204,8 @@ Population::~Population() {
  **========================================================== */
 void Population::doRTS(void) {
 	int windowSize = ((int *)globalSetup->nichingParameters)[0];
-	int ii, jj, kk, closest, rndGuy;
+	int ii, jj, kk, rndGuy;
+	int closest = 0;
 	double minDist, distance, maxDist;
 
 	Individual **tempGuys;
@@ -438,7 +439,7 @@ void Population::loadPopulationFromFile(void) {
 	int numSolutions, numToLoad;
 	double *variableValues;
 	double *objValues, *constViolValues;
-	double dummy;
+	//double dummy;
 	double penaltyValue;
 
 	variableValues = new double[globalSetup->noOfDecisionVariables];
