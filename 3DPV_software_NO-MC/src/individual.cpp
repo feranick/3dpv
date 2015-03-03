@@ -240,8 +240,8 @@ NsgaIndividual::NsgaIndividual(const NsgaIndividual *sourceInd) :
 NsgaIndividual::~NsgaIndividual(void) {
 	// Here Individual's destructor is called automatically.
 	// No need to call Individual::~Individual explicitly.
-	delete [] fitness;
-	delete [] objFunction;
+	//delete [] fitness;
+	//delete [] objFunction;
 }
 
 NsgaIndividual & NsgaIndividual::operator= (const NsgaIndividual &sourceInd) {
