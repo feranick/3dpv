@@ -43,13 +43,13 @@ NsgaPopulation::~NsgaPopulation(void)
   delete []combinedGuys;
   delete []numIndsFront;
   delete []paretoFront;
-  delete []bestobj;
-  delete []worstobj;
-  delete []avgobj;
-  delete []minfit;
-  delete []maxfit;
-  delete []avgfit;
-  delete []varfit;
+  //delete []bestobj;
+  //delete []worstobj;
+  //delete []avgobj;
+  //delete []minfit;
+  //delete []maxfit;
+  //delete []avgfit;
+  //delete []varfit;
 }
 
 
