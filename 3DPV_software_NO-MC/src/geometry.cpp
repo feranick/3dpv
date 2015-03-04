@@ -7262,7 +7262,7 @@ int halfspace_norm_triangle_int_3d ( double pp[3], double pn[3], double t[3*3],
 //    points returned, which will always be between 0 and 4.
 //
 {
-  double d;
+  //double d;
   double dist1;
   double dist2;
   double dist3;
@@ -7270,7 +7270,7 @@ int halfspace_norm_triangle_int_3d ( double pp[3], double pn[3], double t[3*3],
 //
 //  Compute the signed distances between the vertices and the plane.
 //
-  d = - r8vec_dot ( 3, pn, pp );
+  //d = - r8vec_dot ( 3, pn, pp );
 
   dist1 = r8vec_dot ( 3, pn, t+0*3 );
   dist2 = r8vec_dot ( 3, pn, t+1*3 );
