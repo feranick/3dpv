@@ -5497,7 +5497,15 @@ int main(int argc, char *argv[])
 		Cell_3 cellArray[numCells];
 		BuildStructure(cellArray, MODEL);
 
-		double efficiencies[numCells], reflIndices[numCells];
+		//double efficiencies[numCells], reflIndices[numCells];
+
+		double * efficiencies = new double[numCells];
+		double * reflIndices = new double[numCells];
+		
+		for(int i=0; i<numCells; i++) {
+                        efficiencies[i] = 0;
+                        reflIndices[i] = 0 ;
+                }
 
 		ifstream ifs(modelSpecDir.data());
 
@@ -5509,7 +5517,9 @@ int main(int argc, char *argv[])
 
 		double day_energee=0;
 		day_energee = newCalculatePowerDayCycle(cellArray, modelPointer, efficiencies, reflIndices, true, true, outDirectory);
-
+		
+		delete [] efficiencies;
+		delete [] reflIndices;
 	}
 
 
