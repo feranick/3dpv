@@ -5275,7 +5275,14 @@ int main(int argc, char *argv[])
 	getcwd(Main_Dir, 255); //initializes the main directory
 	strcat(Main_Dir,"/");               // final form of Main_Dir which will be copied many times
 	strcpy(Clone_Dir, Main_Dir);
-	strcat(Clone_Dir, argv[2]);
+	if (strlen(argv[2])  <= strlen(Clone_Dir)) {
+		strcat(Clone_Dir, argv[2]);
+	}
+	else {
+		printf("Name of directory is too long. Please shorten it and try again");
+		return 0;
+	}
+		
 	strcpy(Unique_Dir, Clone_Dir);
 	strcat(Unique_Dir,"/");             // final form of Unique_Dir which will be copied many times
 	strcpy(Clone_Dir, Main_Dir);
