@@ -5489,14 +5489,8 @@ int main(int argc, char *argv[])
 		ifstream ifs(modelSpecDir.data());
 
 		for(int i=0; i<numCells; i++) {
-			if(!ifs) {
-				efficiencies[i] = 0;
-				reflIndices[i] = 0;
-			}
-			else {
-				ifs >> efficiencies[i];
-				ifs >> reflIndices[i];
-			}
+			ifs >> efficiencies[i];
+			ifs >> reflIndices[i];
 		}
 		ifs.close();
 
