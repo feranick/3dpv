@@ -1987,7 +1987,10 @@ double newCalculatePowerDayCycle(Cell_3 cells_Array[], double xgenes[], double e
 			int num_times=0; // counts the number of iterations that day is broken into
 			int which_iteration=0; // like the above one but defined on 4/7/09 and incremented at end of iteration...not start
 
-			SunCurrentPosition(6.0, 1, curYear, curMonth, curDate);
+			Position *tempsun;
+			tempsun = SunCurrentPosition(6.0, 1, curYear, curMonth, curDate);
+			delete tempsun;
+
 			double start_time = spa.sunrise + 0.1;  // add ~9 minutes to ensure sun is "totally risen"
 			double end_time = spa.sunset - 0.1;     // subtract ~9 minutes to ensure
 
