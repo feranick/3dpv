@@ -36608,6 +36608,8 @@ void triangle_contains_line_exp_3d ( double t[3*3], double p1[3],
 //  Find the intersection of the plane and the line.
 //
 //  ival = plane_normal_line_exp_int_3d ( t, normal, p1, p2, pint );
+    
+    plane_normal_line_exp_int_3d ( t, normal, p1, p2, pint );
 
  /* if ( ival == 0 )
   {
