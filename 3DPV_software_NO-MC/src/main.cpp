@@ -2902,7 +2902,7 @@ void GetZenithAngleDistribution(double myCoordinates[])
 	// for now, create an approximated discrete distribution (round all angles to nearest degree)
 	int ang_sort=0;
 	double curr_ang=0.0;
-	double deg_per_binh = (double)(180/HorizBins_numberof);
+	double deg_per_binh = (double)(180.0/(double) HorizBins_numberof);
 	double temp_weighted_inc = 1;
 	
 	// new on 10/06/09, 10/6/09
@@ -3038,7 +3038,7 @@ void GetAzimuthAngleDistribution(double myCoordinates[])
 	// for now, create an approximated discrete distribution (round all angles to nearest degree)
 	int ang_sort=0;
 	double curr_ang=0.0;
-	double deg_per_bin = (double)(360/AngleBins_numberof);
+	double deg_per_bin = (double)(360.0/(double) AngleBins_numberof);
 	double temp_weighted_inc = 1;
 	double spec1_weighted_inc = 1;
 	double spec2_weighted_inc = 1;
@@ -3161,8 +3161,8 @@ void Get2dAngleDistribution(double myCoordinates[])
 	int ang_sort_y=0;
 	double curr_ang_x=0.0;
 	double curr_ang_y=0.0;
-	double deg_per_bin_x = (double)(180/HorizBins_numberof);
-	double deg_per_bin_y = (double)(360/AngleBins_numberof);
+	double deg_per_bin_x = (double)(180.0/(double) HorizBins_numberof);
+	double deg_per_bin_y = (double)(360.0/(double)AngleBins_numberof);
 	double temp_weighted_inc = 1;
 	double spec1_weighted_inc = 1;
 	double spec2_weighted_inc = 1;
