@@ -33339,7 +33339,7 @@ void tetrahedron_insphere_3d ( double tetra[3*4], double *r, double pc[3] )
   double v41[DIM_NUM];
   double v32[DIM_NUM];
   double v42[DIM_NUM];
-  double v43[DIM_NUM];
+  //double v43[DIM_NUM];
 
   for ( i = 0; i < DIM_NUM; i++ )
   {
@@ -33361,11 +33361,11 @@ void tetrahedron_insphere_3d ( double tetra[3*4], double *r, double pc[3] )
   {
     v42[i] = tetra[i+3*DIM_NUM] - tetra[i+1*DIM_NUM];
   }
-  for ( i = 0; i < DIM_NUM; i++ )
+/*  for ( i = 0; i < DIM_NUM; i++ )
   {
     v43[i] = tetra[i+3*DIM_NUM] - tetra[i+2*DIM_NUM];
   }
-
+*/
   n123 = r8vec_cross_3d ( v21, v31 );
   n124 = r8vec_cross_3d ( v41, v21 );
   n134 = r8vec_cross_3d ( v31, v41 );
