@@ -36555,7 +36555,7 @@ void triangle_contains_line_exp_3d ( double t[3*3], double p1[3],
   double normal[DIM_NUM];
 	normal[0]=t_norm[0]; normal[1]=t_norm[1]; normal[2]=t_norm[2];
   double normal2[DIM_NUM];
-  double temp;
+  //double temp;
   double v1[DIM_NUM];
   double v2[DIM_NUM];
 //

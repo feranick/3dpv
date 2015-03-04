@@ -190,7 +190,7 @@ Reference: Baker, J.E. (1985). "Adaptive Selection Methods for Genetic Algorithm
 void StochasticUniversalSelection::select(int *matingPool)
 {
   int ii, jj = 0, *winner;
-  double rndNo, sum, avgRank = 0.0;  
+  double rndNo, sum = 0.0;  
   
   winner = new int[globalSetup->populationSize];
 
