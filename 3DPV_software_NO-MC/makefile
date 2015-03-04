@@ -2,7 +2,8 @@ INCLUDE = -I/usr/include
 LIBDIR  = -L/usr/lib
 
 
-CC=g++
+CC=g++-mp-4.8
+#CC=g++
 LIBRARIES = -static-libgcc -static-libstdc++
 
 CFLAGS= -c -Wall  $(INCLUDE) 
