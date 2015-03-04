@@ -2314,12 +2314,16 @@ double newCalculatePowerDayCycle(Cell_3 cells_Array[], double xgenes[], double e
 
 							//printf("points: %i\n", num_points_shadowed);
 							// now calculate the power for this cell face using area, angle of incidence, and efficiency
+							/* // The if conditions seems to lead to the same calculation. Disabling the if, enabling one line only.
 							if (ray_method==PERCELL) {
 								flatArea = (max_rayfires-num_points_shadowed)*flatArea/(max_rayfires);
 							}
 							else {
 								flatArea = (max_rayfires-num_points_shadowed)*flatArea/(max_rayfires);
-							}
+							}*/
+
+							flatArea = (max_rayfires-num_points_shadowed)*flatArea/(max_rayfires);  // (NF:20150304)
+
 							incidenceAngle = acos(-curr_triangle->SunScalarProduct);
 
 							double reflPowerFlux=0;
