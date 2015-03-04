@@ -36551,7 +36551,7 @@ void triangle_contains_line_exp_3d ( double t[3*3], double p1[3],
 # define DIM_NUM 3
 
   int i;
-  int ival;
+//  int ival;
   double normal[DIM_NUM];
 	normal[0]=t_norm[0]; normal[1]=t_norm[1]; normal[2]=t_norm[2];
   double normal2[DIM_NUM];
@@ -36609,7 +36609,7 @@ void triangle_contains_line_exp_3d ( double t[3*3], double p1[3],
 //
 //  Find the intersection of the plane and the line.
 //
-  ival = plane_normal_line_exp_int_3d ( t, normal, p1, p2, pint );
+//  ival = plane_normal_line_exp_int_3d ( t, normal, p1, p2, pint );
 
  /* if ( ival == 0 )
   {
