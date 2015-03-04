@@ -18679,9 +18679,9 @@ bool polygon_contains_point_2d_2 ( int n, double v[], double p[2] )
 
   int i;
   double t[DIM_NUM*3];
-  bool value;
+  //bool value;
 
-  value = false;
+  //value = false;
 //
 //  A point is inside a convex polygon if and only if it is inside
 //  one of the triangles formed by the first vertex and any two consecutive
@@ -36768,7 +36768,7 @@ void triangle_contains_line_par_3d ( double t[], double p0[], double pd[],
   double d;
   double denom;
   int dim;
-  bool intersect;
+  //bool intersect;
   double norm;
   double norm1;
   double norm2;
@@ -36837,7 +36837,7 @@ void triangle_contains_line_par_3d ( double t[], double p0[], double pd[],
 //
     if ( a * p0[0] + b * p0[1] + c * p0[2] + d == 0.0 )
     {
-      intersect = true;
+      //intersect = true;
       *inside = false;
       r8vec_copy ( DIM_NUM, p0, p );
     }
@@ -36846,7 +36846,7 @@ void triangle_contains_line_par_3d ( double t[], double p0[], double pd[],
 //
     else
     {
-      intersect = false;
+      //intersect = false;
       *inside = false;
       r8vec_zero ( DIM_NUM, p );
     }
@@ -36856,7 +36856,7 @@ void triangle_contains_line_par_3d ( double t[], double p0[], double pd[],
 //
   else
   {
-    intersect = true;
+    //intersect = true;
     t_int = - ( a * p0[0] + b * p0[1] + c * p0[2] + d ) / denom;
     for ( dim = 0; dim < DIM_NUM; dim++ )
     {
