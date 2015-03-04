@@ -586,7 +586,7 @@ void ReadBestObjFile ()  // takes pointer to first element in new coordinate arr
 
 	long lSize;
 	char * buffer;
-	size_t result;
+	//size_t result;
 
 	//if (bestFile==NULL) {fputs ("pre-view loading : File error, main output file\n",stderr); exit (1);}
 	
@@ -600,7 +600,8 @@ void ReadBestObjFile ()  // takes pointer to first element in new coordinate arr
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	result = fread (buffer,1,lSize,bestFile);
+	//result = fread (buffer,1,lSize,bestFile);
+    fread (buffer,1,lSize,bestFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
@@ -769,7 +770,7 @@ int ReadStructureVertices_Count (int model_ind)
   FILE * pFile;
   long lSize;
   char * buffer;
-  size_t result;
+  //size_t result;
   strcpy(Clone_Dir, Main_Dir);
 	//printf("will count in: %s\n", strcat(Clone_Dir, Input_modelALL[model_ind]));
 	//printf("%s\n", Clone_Dir);
@@ -787,7 +788,8 @@ int ReadStructureVertices_Count (int model_ind)
   if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
   // copy the file into the buffer:
-  result = fread (buffer,1,lSize,pFile);
+  //result = fread (buffer,1,lSize,pFile);
+    fread (buffer,1,lSize,pFile);
 //  if (result != lSize) {fputs ("Reading error",stderr); exit (3);} // check gives integer comparison warning
 
   // the whole file is now loaded in the memory buffer.
@@ -819,7 +821,7 @@ void ReadStructureVertices_Retrieve (double *coordinates, int model_ind)  // tak
 	FILE * pFile;
 	long lSize;
 	char * buffer;
-	size_t result;
+	//size_t result;
 	strcpy(Clone_Dir, Main_Dir); printf("%s\n",Input_modelALL[model_ind]);
 
 	pFile = fopen (strcat(Clone_Dir, Input_modelALL[model_ind]), "rb");
@@ -836,7 +838,8 @@ void ReadStructureVertices_Retrieve (double *coordinates, int model_ind)  // tak
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	result = fread (buffer,1,lSize,pFile);
+	//result = fread (buffer,1,lSize,pFile);
+    fread (buffer,1,lSize,pFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
@@ -870,7 +873,7 @@ void ReadMainOutputFile (char *output_mainfile)  // takes pointer to first eleme
 	FILE * pFile;
 	long lSize;
 	char * buffer;
-	size_t result;
+	//size_t result;
 
 	pFile = fopen ( output_mainfile, "rb" );
 	if (pFile==NULL) {fputs ("pre-view loading : File error, main output file\n",stderr); exit (1);}
@@ -885,7 +888,8 @@ void ReadMainOutputFile (char *output_mainfile)  // takes pointer to first eleme
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	result = fread (buffer,1,lSize,pFile);
+	//result = fread (buffer,1,lSize,pFile);
+    fread (buffer,1,lSize,pFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
@@ -947,7 +951,7 @@ void ReadRoofPositions(double in_pos[], int nextline_num, int i_am_best)
 
 	long lSize;
 	char * buffer;
-	size_t result;
+	//size_t result;
 	//strcpy(Clone_Dir, Main_Dir);
 	
 	//printf("Check Roof a\n");
@@ -962,7 +966,8 @@ void ReadRoofPositions(double in_pos[], int nextline_num, int i_am_best)
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	result = fread (buffer,1,lSize,posFile);
+	//result = fread (buffer,1,lSize,posFile);
+    fread (buffer,1,lSize,posFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
@@ -1384,7 +1389,7 @@ Position* SunCurrentPosition(double ctime, bool find_init = 0, int year = 0, int
 	minute = floor(minute);
 	double second = floor(decimal*60);
 	
-	int errorcode;
+	//int errorcode;
 	// first time, initialize all spa data structure variables
 	if (find_init)
 	{
@@ -1406,7 +1411,8 @@ Position* SunCurrentPosition(double ctime, bool find_init = 0, int year = 0, int
 		spa.azm_rotation  = 180;                 // surface azimuth rotation (like compass; 0 = south; 180=north i think)
 		spa.atmos_refract = 0.5667;              // (-5 to 5 degrees)
 		spa.function      = SPA_ZA_RTS;          // output zenith, azimuth, and time of sunrise/sunset (in fractional hour)
-		errorcode     = spa_calculate(&spa); // carry out "sun position algorithm with inputs given for spa
+		//errorcode     = spa_calculate(&spa); // carry out "sun position algorithm with inputs given for spa
+        spa_calculate(&spa); // carry out "sun position algorithm with inputs given for spa
 		// if errorcode != 0 may want to crash program
 	}
 	else
@@ -1417,7 +1423,8 @@ Position* SunCurrentPosition(double ctime, bool find_init = 0, int year = 0, int
 		spa.second        = (int)second;              // 0 to 59
 //		spa.azm_rotation  = 180;                 // surface azimuth rotation (like compass; 0 = south; 180=north i think)
 		spa.function      = SPA_ZA_INC;          // output zenith, azimuth, and incidence angle
-		errorcode     = spa_calculate(&spa); // carry out "sun position algorithm with inputs given for spa
+		//errorcode     = spa_calculate(&spa);
+        spa_calculate(&spa);// carry out "sun position algorithm with inputs given for spa
 	}
 	
 	// transform this data into spherical coordinates, scale distance to sun to 100m from the cell configuration
@@ -1989,7 +1996,7 @@ double newCalculatePowerDayCycle(Cell_3 cells_Array[], double xgenes[], double e
 
 				double shadow_vert_dists[3];
 				double shadow_least_dist=0;
-				int shadow_which_least=0;
+				//int shadow_which_least=0;
 
 				double tri_vt[9]; // 9 coordinates of triangle
 				double tri_s_vt[9];
@@ -2226,17 +2233,17 @@ double newCalculatePowerDayCycle(Cell_3 cells_Array[], double xgenes[], double e
 									if ((shadow_vert_dists[0]<shadow_vert_dists[1]) and
 										(shadow_vert_dists[0]<shadow_vert_dists[2])) {
 										shadow_least_dist=shadow_vert_dists[0];
-										shadow_which_least=0;
+										//shadow_which_least=0;
 									}
 									if ((shadow_vert_dists[1]<shadow_vert_dists[2]) and
 										(shadow_vert_dists[1]<shadow_vert_dists[0])) {
 										shadow_least_dist=shadow_vert_dists[1];
-										shadow_which_least=1;
+										//shadow_which_least=1;
 									}
 									if ((shadow_vert_dists[2]<shadow_vert_dists[0]) and
 										(shadow_vert_dists[2]<shadow_vert_dists[1])) {
 										shadow_least_dist=shadow_vert_dists[2];
-										shadow_which_least=2;
+										//shadow_which_least=2;
 									}
 
 									if ( (shadow_least_dist) <= (tsample_find_max) ) {
@@ -2384,7 +2391,7 @@ double newCalculatePowerDayCycle(Cell_3 cells_Array[], double xgenes[], double e
 									int intersected_counter=0;		// count # of maybe "hit" triangles
 									int intersected_ones[numCells]; // store indices of triangles maybe "hit"
 									double int_dists0[numCells]; // distances intersect pt's to refl gridpt.
-									double int_dists1[numCells]; // distances intersect pt's to point on RAY
+									//double int_dists1[numCells]; // distances intersect pt's to point on RAY
 
 
 
