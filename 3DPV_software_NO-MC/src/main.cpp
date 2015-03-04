@@ -586,7 +586,7 @@ void ReadBestObjFile ()  // takes pointer to first element in new coordinate arr
 
 	long lSize;
 	char * buffer;
-	//size_t result;
+	size_t result;
 
 	//if (bestFile==NULL) {fputs ("pre-view loading : File error, main output file\n",stderr); exit (1);}
 	
@@ -600,8 +600,7 @@ void ReadBestObjFile ()  // takes pointer to first element in new coordinate arr
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	//result = fread (buffer,1,lSize,bestFile);
-    fread (buffer,1,lSize,bestFile);
+	result = fread (buffer,1,lSize,bestFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
@@ -770,7 +769,7 @@ int ReadStructureVertices_Count (int model_ind)
   FILE * pFile;
   long lSize;
   char * buffer;
-  //size_t result;
+  size_t result;
   strcpy(Clone_Dir, Main_Dir);
 	//printf("will count in: %s\n", strcat(Clone_Dir, Input_modelALL[model_ind]));
 	//printf("%s\n", Clone_Dir);
@@ -788,8 +787,7 @@ int ReadStructureVertices_Count (int model_ind)
   if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
   // copy the file into the buffer:
-  //result = fread (buffer,1,lSize,pFile);
-    fread (buffer,1,lSize,pFile);
+  result = fread (buffer,1,lSize,pFile);
 //  if (result != lSize) {fputs ("Reading error",stderr); exit (3);} // check gives integer comparison warning
 
   // the whole file is now loaded in the memory buffer.
@@ -821,7 +819,7 @@ void ReadStructureVertices_Retrieve (double *coordinates, int model_ind)  // tak
 	FILE * pFile;
 	long lSize;
 	char * buffer;
-	//size_t result;
+	size_t result;
 	strcpy(Clone_Dir, Main_Dir); printf("%s\n",Input_modelALL[model_ind]);
 
 	pFile = fopen (strcat(Clone_Dir, Input_modelALL[model_ind]), "rb");
@@ -838,8 +836,7 @@ void ReadStructureVertices_Retrieve (double *coordinates, int model_ind)  // tak
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	//result = fread (buffer,1,lSize,pFile);
-    fread (buffer,1,lSize,pFile);
+	result = fread (buffer,1,lSize,pFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
@@ -873,7 +870,7 @@ void ReadMainOutputFile (char *output_mainfile)  // takes pointer to first eleme
 	FILE * pFile;
 	long lSize;
 	char * buffer;
-	//size_t result;
+	size_t result;
 
 	pFile = fopen ( output_mainfile, "rb" );
 	if (pFile==NULL) {fputs ("pre-view loading : File error, main output file\n",stderr); exit (1);}
@@ -888,8 +885,7 @@ void ReadMainOutputFile (char *output_mainfile)  // takes pointer to first eleme
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	//result = fread (buffer,1,lSize,pFile);
-    fread (buffer,1,lSize,pFile);
+	result = fread (buffer,1,lSize,pFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
@@ -951,7 +947,7 @@ void ReadRoofPositions(double in_pos[], int nextline_num, int i_am_best)
 
 	long lSize;
 	char * buffer;
-	//size_t result;
+	size_t result;
 	//strcpy(Clone_Dir, Main_Dir);
 	
 	//printf("Check Roof a\n");
@@ -966,8 +962,7 @@ void ReadRoofPositions(double in_pos[], int nextline_num, int i_am_best)
 	if (buffer == NULL) {fputs ("Memory error",stderr); exit (2);}
 
 	// copy the file into the buffer:
-	//result = fread (buffer,1,lSize,posFile);
-    fread (buffer,1,lSize,posFile);
+	result = fread (buffer,1,lSize,posFile);
 //	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
