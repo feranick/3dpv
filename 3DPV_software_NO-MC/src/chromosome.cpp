@@ -155,7 +155,7 @@ void Chromosome::mutateNormal(const int *freezeMask) {
 	double yWidth = 0;
 	double zWidth = 0;
 	int largest=0; // 0,1,2 = x,y,z
-	int smallest=0; //....""
+	//int smallest=0; //....""
 	int jv[3][2] = {{0,3}, {0,6}, {3,6}}; // each pair indicates the position index of the x-coordiate for the iith triangle vector
 	if (globalSetup->do_area_restriction==true)
 	{
