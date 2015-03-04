@@ -601,7 +601,7 @@ void ReadBestObjFile ()  // takes pointer to first element in new coordinate arr
 
 	// copy the file into the buffer:
 	result = fread (buffer,1,lSize,bestFile);
-//	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
+	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
 
@@ -788,7 +788,7 @@ int ReadStructureVertices_Count (int model_ind)
 
   // copy the file into the buffer:
   result = fread (buffer,1,lSize,pFile);
-//  if (result != lSize) {fputs ("Reading error",stderr); exit (3);} // check gives integer comparison warning
+  if (result != lSize) {fputs ("Reading error",stderr); exit (3);} // check gives integer comparison warning
 
   // the whole file is now loaded in the memory buffer.
 
@@ -837,7 +837,7 @@ void ReadStructureVertices_Retrieve (double *coordinates, int model_ind)  // tak
 
 	// copy the file into the buffer:
 	result = fread (buffer,1,lSize,pFile);
-//	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
+	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
 
@@ -886,7 +886,7 @@ void ReadMainOutputFile (char *output_mainfile)  // takes pointer to first eleme
 
 	// copy the file into the buffer:
 	result = fread (buffer,1,lSize,pFile);
-//	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
+	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
 
@@ -963,7 +963,7 @@ void ReadRoofPositions(double in_pos[], int nextline_num, int i_am_best)
 
 	// copy the file into the buffer:
 	result = fread (buffer,1,lSize,posFile);
-//	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
+	if (result != lSize) {fputs ("Reading error",stderr); exit (3);}   // check gives integer comparison warning
 
 	// the whole file is now loaded in the memory buffer.
 	//printf("Check Roof b\n");
