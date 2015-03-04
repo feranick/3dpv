@@ -435,7 +435,7 @@ void Population::computeFitnessStatistics(void) {
  ** Functions called: Individual::evaluateFitness();
  **========================================================*/
 void Population::loadPopulationFromFile(void) {
-	int ii, numGlobalEvals = 0, jj;
+	int ii = 0, jj = 0;
 	int numSolutions, numToLoad;
 	double *variableValues;
 	double *objValues, *constViolValues;

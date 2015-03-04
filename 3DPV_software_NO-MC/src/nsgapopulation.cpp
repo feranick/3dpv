@@ -77,7 +77,7 @@ Details:
 */
 void NsgaPopulation::doNonDominatedSort(int whichGuys)
 {
-  int ii, jj, popSize, fid, idomj, nif;
+  int ii, jj, popSize = 0, fid, idomj, nif;
   int *domCount, **indDomByMe, *numIndDom;
   int oldNoOfFronts;
   NsgaIndividual **theGuys;
@@ -168,7 +168,7 @@ Details:
 void NsgaPopulation::computeCrowdingDistance(int whichGuys)
 {
   int ii, jj, kk, firstInd, lastInd;
-  int indId1, indId2, indId, popSize;
+  int indId1, indId2, indId, popSize = 0;
   int *sortListByObj;
   double normFit1, normFit2, *crowdDist;
   NsgaIndividual **theGuys;
@@ -287,7 +287,7 @@ void NsgaPopulation::regQSort(double *crowdDist, int *output, int left, int righ
 **========================================================*/
 void NsgaPopulation::computeObjStatistics(int whichGuys) 
 {
-  int ii, jj, popSize;
+  int ii, jj, popSize = 0;
   double oneOverPopulationSize;
   NsgaIndividual **theGuys;
   
@@ -336,7 +336,7 @@ void NsgaPopulation::computeObjStatistics(int whichGuys)
 **========================================================*/
 void NsgaPopulation::computeFitnessStatistics(int whichGuys) 
 {
-  int ii, jj, popSize;
+  int ii, jj, popSize = 0;
   double oneOverPopulationSize;
   NsgaIndividual **theGuys;
   
@@ -377,7 +377,7 @@ If the jth objective value is a maximization, then the fitness is set equal to t
 */
 void NsgaPopulation::mapObjectiveToFitness(int whichGuys) 
 {
-  int ii,jj, popSize;
+  int ii,jj, popSize = 0;
   NsgaIndividual **theGuys;
   
   if(whichGuys == GUYS) {

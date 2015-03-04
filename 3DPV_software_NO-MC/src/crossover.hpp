@@ -29,7 +29,7 @@ private:
   int noOfPoints;
 public:
   OneTwoPointCrossover(int numPoints);
-  void crossover (Individual *parent1, Individual *parent2);
+  virtual void crossover (Individual *parent1, Individual *parent2);
 };
 
 class UniformCrossover: public Crossover {
@@ -38,7 +38,7 @@ private:
 public:
   UniformCrossover(void);
   UniformCrossover(double geneProb);
-  void crossover (Individual *parent1, Individual *parent2);
+  virtual void crossover (Individual *parent1, Individual *parent2);
 };
 
 class SimulatedBinaryCrossover: public Crossover {
@@ -47,7 +47,7 @@ private:
 public:
   SimulatedBinaryCrossover(void);
   SimulatedBinaryCrossover(double geneProb);
-  void crossover (Individual *parent1, Individual *parent2);
+  virtual void crossover (Individual *parent1, Individual *parent2);
 };
 
 #endif
