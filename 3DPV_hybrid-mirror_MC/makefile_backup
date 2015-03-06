@@ -2,6 +2,10 @@ INCLUDE = -I/usr/include
 LIBDIR  = -L/usr/lib
 
 CC=g++
+#CC=g++-mp-4.8
+#CC=g++-mp-4.9
+#CC=g++-mp-5
+
 CFLAGS= -c -Wall $(INCLUDE)
 LDFLAGS= $(LIBDIR)
 LIBRARIES = -lstdc++
