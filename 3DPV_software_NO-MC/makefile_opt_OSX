@@ -1,7 +1,7 @@
 INCLUDE = -I/usr/include
 LIBDIR  = -L/usr/lib
 
-CC=g++-mp-4.8
+CC=g++-mp-5.0
 LIBRARIES = -static-libgcc -static-libstdc++
 CFLAGS= -c -Wall $(INCLUDE) -mtune=native -fomit-frame-pointer -mfpmath=sse -msse -msse2 -msse3 -mmmx -m3dnow
 #CFLAGS= -c -Wall $(INCLUDE)
