@@ -20,7 +20,7 @@ open(OUT, ">>$output") || die "Cannot open file $output";
 
 ##DEFINE MAX POWER SO TO RESCALE ALL COLORS ACCORDINGLY
 #Color usually normalized at noon highest power 
-$maxpower = 530000 ;
+$maxpower = 140 ;
 
 #Cycle through power file and assign fractional colors to cells
 $j=0 ; $s=0;

@@ -59,7 +59,7 @@ print OUT "list={";
 
 for ($n = 1; $n <= $numframes; $n++) {
     print OUT "p$n,";
-    print OUT "p$n,";
+    #print OUT "p$n,";
 }
 print OUT "}\n\n";
 
